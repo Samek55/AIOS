@@ -57,13 +57,13 @@ function Ring({
           />
         </svg>
         <div className="absolute inset-0 flex flex-col items-center justify-center">
-          <p style={{ fontSize: '13px', fontWeight: 700 }} className="text-[#222222]">
+          <p style={{ fontSize: '13px', fontWeight: 700 }} className="text-[#17202E]">
             {Math.round(pct * 100)}%
           </p>
         </div>
       </div>
       <div className="text-center">
-        <p style={{ fontSize: '13px', fontWeight: 700 }} className="text-[#222222]">
+        <p style={{ fontSize: '13px', fontWeight: 700 }} className="text-[#17202E]">
           {value}
         </p>
         <p style={{ fontSize: '10px' }} className="text-[#888]">
@@ -91,9 +91,9 @@ export default function AIOSHealth() {
   const [activeTab, setActiveTab] = useState<'overview' | 'workout' | 'nutrition' | 'sleep'>('overview');
 
   const rings = [
-    { label: 'Steps', value: health.stepsToday, goal: health.stepGoal, accent: '#C2DBC4' },
-    { label: 'Calories', value: health.caloriesBurned, goal: health.calorieGoal, accent: '#F4A261' },
-    { label: 'Water', value: health.waterGlasses, goal: health.waterGoal, accent: '#7BA7DC' },
+    { label: 'Steps', value: health.stepsToday, goal: health.stepGoal, accent: '#14B8A6' },
+    { label: 'Calories', value: health.caloriesBurned, goal: health.calorieGoal, accent: '#F97316' },
+    { label: 'Water', value: health.waterGlasses, goal: health.waterGoal, accent: '#2563EB' },
     { label: 'Sleep', value: Number(health.sleepHours.toFixed(1)), goal: health.sleepGoal, accent: '#C77DFF' },
   ];
 
@@ -101,15 +101,15 @@ export default function AIOSHealth() {
     <div className="mx-auto max-w-7xl space-y-5 p-4 lg:p-6">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h1 style={{ fontSize: '24px', fontWeight: 700 }} className="text-[#222222]">
+          <h1 style={{ fontSize: '24px', fontWeight: 700 }} className="text-[#17202E]">
             Health & Fitness
           </h1>
           <p style={{ fontSize: '13px' }} className="text-[#888]">
             Health score {healthScore.toFixed(0)}/100 • Resting HR {health.restingHeartRate} BPM
           </p>
         </div>
-        <div className="flex items-center gap-2 rounded-xl bg-[#222222] px-4 py-2 text-white">
-          <Heart size={15} className="text-[#C2DBC4]" />
+        <div className="flex items-center gap-2 rounded-xl bg-[#17202E] px-4 py-2 text-white">
+          <Heart size={15} className="text-[#14B8A6]" />
           <span style={{ fontSize: '13px', fontWeight: 700 }}>{health.averageHeartRate} BPM avg</span>
         </div>
       </div>
@@ -121,8 +121,8 @@ export default function AIOSHealth() {
             onClick={() => setActiveTab(tab)}
             className={`rounded-xl border px-4 py-2 capitalize transition-all ${
               activeTab === tab
-                ? 'border-[#222222] bg-[#222222] text-white'
-                : 'border-[#C2DBC4]/30 bg-white text-[#666] hover:border-[#C2DBC4]'
+                ? 'border-[#17202E] bg-[#17202E] text-white'
+                : 'border-[#14B8A6]/30 bg-white text-[#666] hover:border-[#14B8A6]'
             }`}
             style={{ fontSize: '13px', fontWeight: activeTab === tab ? 700 : 500 }}
           >
@@ -133,12 +133,12 @@ export default function AIOSHealth() {
 
       {activeTab === 'overview' ? (
         <div className="space-y-5">
-          <div className="rounded-2xl border border-[#C2DBC4]/20 bg-white p-5">
+          <div className="rounded-2xl border border-[#14B8A6]/20 bg-white p-5">
             <div className="mb-5 flex items-center justify-between">
-              <h2 style={{ fontSize: '15px', fontWeight: 700 }} className="text-[#222222]">
+              <h2 style={{ fontSize: '15px', fontWeight: 700 }} className="text-[#17202E]">
                 Today Activity
               </h2>
-              <span style={{ fontSize: '12px', fontWeight: 700 }} className="text-[#7BAF80]">
+              <span style={{ fontSize: '12px', fontWeight: 700 }} className="text-[#0F766E]">
                 On track
               </span>
             </div>
@@ -150,12 +150,12 @@ export default function AIOSHealth() {
           </div>
 
           <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-            <div className="rounded-2xl border border-[#C2DBC4]/20 bg-white p-5">
+            <div className="rounded-2xl border border-[#14B8A6]/20 bg-white p-5">
               <div className="mb-4 flex items-center justify-between">
-                <h2 style={{ fontSize: '15px', fontWeight: 700 }} className="text-[#222222]">
+                <h2 style={{ fontSize: '15px', fontWeight: 700 }} className="text-[#17202E]">
                   Weekly Steps
                 </h2>
-                <p style={{ fontSize: '12px', fontWeight: 700 }} className="text-[#7BAF80]">
+                <p style={{ fontSize: '12px', fontWeight: 700 }} className="text-[#0F766E]">
                   {formatCompactNumber(
                     health.weeklySteps.reduce((sum, point) => sum + point.steps, 0),
                   )}{' '}
@@ -168,20 +168,20 @@ export default function AIOSHealth() {
                   <XAxis dataKey="day" tick={{ fontSize: 11, fill: '#999' }} axisLine={false} tickLine={false} />
                   <YAxis hide />
                   <Tooltip
-                    contentStyle={{ fontSize: '12px', borderRadius: '10px', border: '1px solid #E8F3E9' }}
+                    contentStyle={{ fontSize: '12px', borderRadius: '10px', border: '1px solid #E0F7F3' }}
                     formatter={(value: number) => [`${value.toLocaleString()} steps`, 'Steps']}
                   />
-                  <Bar dataKey="steps" fill="#C2DBC4" radius={[6, 6, 0, 0]} maxBarSize={30} />
+                  <Bar dataKey="steps" fill="#14B8A6" radius={[6, 6, 0, 0]} maxBarSize={30} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
 
-            <div className="rounded-2xl border border-[#C2DBC4]/20 bg-white p-5">
+            <div className="rounded-2xl border border-[#14B8A6]/20 bg-white p-5">
               <div className="mb-4 flex items-center justify-between">
-                <h2 style={{ fontSize: '15px', fontWeight: 700 }} className="text-[#222222]">
+                <h2 style={{ fontSize: '15px', fontWeight: 700 }} className="text-[#17202E]">
                   Heart Rate
                 </h2>
-                <span style={{ fontSize: '12px', fontWeight: 700 }} className="text-[#F4A261]">
+                <span style={{ fontSize: '12px', fontWeight: 700 }} className="text-[#F97316]">
                   Avg {health.averageHeartRate} BPM
                 </span>
               </div>
@@ -189,8 +189,8 @@ export default function AIOSHealth() {
                 <AreaChart data={health.heartRateSeries}>
                   <defs>
                     <linearGradient id="heart-rate" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#F4A261" stopOpacity={0.3} />
-                      <stop offset="95%" stopColor="#F4A261" stopOpacity={0} />
+                      <stop offset="5%" stopColor="#F97316" stopOpacity={0.3} />
+                      <stop offset="95%" stopColor="#F97316" stopOpacity={0} />
                     </linearGradient>
                   </defs>
                   <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" vertical={false} />
@@ -200,7 +200,7 @@ export default function AIOSHealth() {
                     contentStyle={{ fontSize: '12px', borderRadius: '10px', border: '1px solid #fde8d8' }}
                     formatter={(value: number) => [`${value} BPM`, 'Heart rate']}
                   />
-                  <Area type="monotone" dataKey="bpm" stroke="#F4A261" fill="url(#heart-rate)" strokeWidth={2} />
+                  <Area type="monotone" dataKey="bpm" stroke="#F97316" fill="url(#heart-rate)" strokeWidth={2} />
                 </AreaChart>
               </ResponsiveContainer>
             </div>
@@ -210,10 +210,10 @@ export default function AIOSHealth() {
 
       {activeTab === 'workout' ? (
         <div className="space-y-4">
-          <div className="rounded-2xl bg-[#222222] p-5 text-white">
+          <div className="rounded-2xl bg-[#17202E] p-5 text-white">
             <p
               style={{ fontSize: '11px', fontWeight: 700 }}
-              className="mb-1 uppercase tracking-wide text-[#C2DBC4]"
+              className="mb-1 uppercase tracking-wide text-[#14B8A6]"
             >
               AI recommendation
             </p>
@@ -227,7 +227,7 @@ export default function AIOSHealth() {
               <div
                 key={workout.id}
                 className={`overflow-hidden rounded-2xl border bg-white transition-all ${
-                  workout.completed ? 'border-[#C2DBC4]' : 'border-[#C2DBC4]/20 hover:border-[#C2DBC4]'
+                  workout.completed ? 'border-[#14B8A6]' : 'border-[#14B8A6]/20 hover:border-[#14B8A6]'
                 }`}
               >
                 <div className="flex items-center gap-4 p-4">
@@ -239,7 +239,7 @@ export default function AIOSHealth() {
                   <div className="min-w-0 flex-1">
                     <h3
                       style={{ fontSize: '14px', fontWeight: 700 }}
-                      className={workout.completed ? 'text-[#888]' : 'text-[#222222]'}
+                      className={workout.completed ? 'text-[#888]' : 'text-[#17202E]'}
                     >
                       {workout.name}
                     </h3>
@@ -251,8 +251,8 @@ export default function AIOSHealth() {
                     onClick={() => toggleWorkout(workout.id)}
                     className={`flex h-10 w-10 items-center justify-center rounded-xl transition-colors ${
                       workout.completed
-                        ? 'bg-[#7BAF80] text-white'
-                        : 'bg-[#222222] text-white hover:bg-[#333333]'
+                        ? 'bg-[#0F766E] text-white'
+                        : 'bg-[#17202E] text-white hover:bg-[#243244]'
                     }`}
                   >
                     {workout.completed ? <Check size={16} /> : <Play size={16} />}
@@ -266,18 +266,18 @@ export default function AIOSHealth() {
 
       {activeTab === 'nutrition' ? (
         <div className="space-y-4">
-          <div className="rounded-2xl border border-[#C2DBC4]/20 bg-white p-5">
+          <div className="rounded-2xl border border-[#14B8A6]/20 bg-white p-5">
             <div className="mb-4 flex items-center justify-between">
-              <h2 style={{ fontSize: '15px', fontWeight: 700 }} className="text-[#222222]">
+              <h2 style={{ fontSize: '15px', fontWeight: 700 }} className="text-[#17202E]">
                 Calorie Tracker
               </h2>
-              <span style={{ fontSize: '12px', fontWeight: 700 }} className="text-[#7BAF80]">
+              <span style={{ fontSize: '12px', fontWeight: 700 }} className="text-[#0F766E]">
                 Goal 2,000 kcal
               </span>
             </div>
             <div className="mb-4 flex items-center gap-6">
               <div className="text-center">
-                <p style={{ fontSize: '28px', fontWeight: 700 }} className="text-[#222222]">
+                <p style={{ fontSize: '28px', fontWeight: 700 }} className="text-[#17202E]">
                   {caloriesConsumed}
                 </p>
                 <p style={{ fontSize: '12px' }} className="text-[#888]">
@@ -287,7 +287,7 @@ export default function AIOSHealth() {
               <div className="flex-1">
                 <div className="h-3 overflow-hidden rounded-full bg-gray-100">
                   <div
-                    className="h-full rounded-full bg-[#C2DBC4]"
+                    className="h-full rounded-full bg-[#14B8A6]"
                     style={{ width: `${Math.min((caloriesConsumed / 2000) * 100, 100)}%` }}
                   />
                 </div>
@@ -295,7 +295,7 @@ export default function AIOSHealth() {
                   <span style={{ fontSize: '11px' }} className="text-[#888]">
                     {Math.round((caloriesConsumed / 2000) * 100)}%
                   </span>
-                  <span style={{ fontSize: '11px', fontWeight: 700 }} className="text-[#7BAF80]">
+                  <span style={{ fontSize: '11px', fontWeight: 700 }} className="text-[#0F766E]">
                     {Math.max(2000 - caloriesConsumed, 0)} remaining
                   </span>
                 </div>
@@ -303,12 +303,12 @@ export default function AIOSHealth() {
             </div>
             <div className="grid grid-cols-3 gap-3">
               {[
-                { label: 'Protein', value: 85, goal: 120, accent: '#F4A261' },
-                { label: 'Carbs', value: 165, goal: 250, accent: '#C2DBC4' },
+                { label: 'Protein', value: 85, goal: 120, accent: '#F97316' },
+                { label: 'Carbs', value: 165, goal: 250, accent: '#14B8A6' },
                 { label: 'Fat', value: 48, goal: 65, accent: '#C77DFF' },
               ].map((macro) => (
-                <div key={macro.label} className="rounded-xl bg-[#F5FAF5] p-3">
-                  <p style={{ fontSize: '16px', fontWeight: 700 }} className="text-[#222222]">
+                <div key={macro.label} className="rounded-xl bg-[#EEF3F8] p-3">
+                  <p style={{ fontSize: '16px', fontWeight: 700 }} className="text-[#17202E]">
                     {macro.value}g
                   </p>
                   <p style={{ fontSize: '11px' }} className="text-[#888]">
@@ -328,8 +328,8 @@ export default function AIOSHealth() {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-[#C2DBC4]/20 bg-white p-5">
-            <h2 style={{ fontSize: '15px', fontWeight: 700 }} className="mb-4 text-[#222222]">
+          <div className="rounded-2xl border border-[#14B8A6]/20 bg-white p-5">
+            <h2 style={{ fontSize: '15px', fontWeight: 700 }} className="mb-4 text-[#17202E]">
               Meal Plan
             </h2>
             <div className="space-y-3">
@@ -338,22 +338,22 @@ export default function AIOSHealth() {
                   key={meal.id}
                   onClick={() => completeMeal(meal.id)}
                   className={`flex w-full items-center gap-3 rounded-xl p-3 text-left transition-all ${
-                    meal.completed ? 'bg-[#E8F3E9]' : 'bg-[#F5FAF5] hover:bg-[#EEF6EE]'
+                    meal.completed ? 'bg-[#E0F7F3]' : 'bg-[#EEF3F8] hover:bg-[#EEF6EE]'
                   }`}
                 >
                   <div
                     className={`flex h-10 w-10 items-center justify-center rounded-xl ${
-                      meal.completed ? 'bg-[#C2DBC4]' : 'bg-white'
+                      meal.completed ? 'bg-[#14B8A6]' : 'bg-white'
                     }`}
                   >
                     {meal.source === 'order' ? (
-                      <Flame size={16} className={meal.completed ? 'text-[#222222]' : 'text-[#888]'} />
+                      <Flame size={16} className={meal.completed ? 'text-[#17202E]' : 'text-[#888]'} />
                     ) : (
-                      <Activity size={16} className={meal.completed ? 'text-[#222222]' : 'text-[#888]'} />
+                      <Activity size={16} className={meal.completed ? 'text-[#17202E]' : 'text-[#888]'} />
                     )}
                   </div>
                   <div className="min-w-0 flex-1">
-                    <p style={{ fontSize: '13px', fontWeight: 700 }} className="text-[#222222]">
+                    <p style={{ fontSize: '13px', fontWeight: 700 }} className="text-[#17202E]">
                       {meal.meal}
                     </p>
                     <p style={{ fontSize: '11px' }} className="text-[#888]">
@@ -363,18 +363,18 @@ export default function AIOSHealth() {
                       {meal.timeLabel} • {meal.calories} kcal
                     </p>
                   </div>
-                  {meal.completed ? <Check size={16} className="text-[#7BAF80]" /> : null}
+                  {meal.completed ? <Check size={16} className="text-[#0F766E]" /> : null}
                 </button>
               ))}
             </div>
           </div>
 
-          <div className="rounded-2xl border border-[#C2DBC4]/20 bg-white p-5">
+          <div className="rounded-2xl border border-[#14B8A6]/20 bg-white p-5">
             <div className="mb-4 flex items-center justify-between">
-              <h2 style={{ fontSize: '15px', fontWeight: 700 }} className="text-[#222222]">
+              <h2 style={{ fontSize: '15px', fontWeight: 700 }} className="text-[#17202E]">
                 Water Intake
               </h2>
-              <span style={{ fontSize: '12px', fontWeight: 700 }} className="text-[#7BA7DC]">
+              <span style={{ fontSize: '12px', fontWeight: 700 }} className="text-[#2563EB]">
                 {health.waterGlasses}/{health.waterGoal} glasses
               </span>
             </div>
@@ -383,7 +383,7 @@ export default function AIOSHealth() {
                 <div
                   key={`glass-${index}`}
                   className={`flex h-10 w-10 items-center justify-center rounded-xl text-lg ${
-                    index < health.waterGlasses ? 'bg-[#7BA7DC]/20' : 'bg-gray-100 opacity-40'
+                    index < health.waterGlasses ? 'bg-[#2563EB]/20' : 'bg-gray-100 opacity-40'
                   }`}
                 >
                   <Droplets size={16} className={index < health.waterGlasses ? 'text-[#5a87bd]' : 'text-[#999]'} />
@@ -392,7 +392,7 @@ export default function AIOSHealth() {
             </div>
             <button
               onClick={() => logWater(1)}
-              className="w-full rounded-xl border border-[#7BA7DC]/30 bg-[#7BA7DC]/10 py-2.5 text-[#5a87bd] transition-colors hover:bg-[#7BA7DC]/20"
+              className="w-full rounded-xl border border-[#2563EB]/30 bg-[#2563EB]/10 py-2.5 text-[#5a87bd] transition-colors hover:bg-[#2563EB]/20"
               style={{ fontSize: '13px', fontWeight: 700 }}
             >
               Log one glass
@@ -403,10 +403,10 @@ export default function AIOSHealth() {
 
       {activeTab === 'sleep' ? (
         <div className="space-y-4">
-          <div className="rounded-2xl bg-[#222222] p-6 text-white">
+          <div className="rounded-2xl bg-[#17202E] p-6 text-white">
             <p
               style={{ fontSize: '11px', fontWeight: 700 }}
-              className="mb-1 uppercase tracking-wide text-[#C2DBC4]"
+              className="mb-1 uppercase tracking-wide text-[#14B8A6]"
             >
               Last night sleep
             </p>
@@ -418,19 +418,19 @@ export default function AIOSHealth() {
             </p>
           </div>
 
-          <div className="rounded-2xl border border-[#C2DBC4]/20 bg-white p-5">
-            <h2 style={{ fontSize: '15px', fontWeight: 700 }} className="mb-4 text-[#222222]">
+          <div className="rounded-2xl border border-[#14B8A6]/20 bg-white p-5">
+            <h2 style={{ fontSize: '15px', fontWeight: 700 }} className="mb-4 text-[#17202E]">
               Sleep Quality
             </h2>
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
               {[
-                { label: 'Duration', value: 92, accent: '#C2DBC4' },
-                { label: 'Consistency', value: 78, accent: '#7BA7DC' },
+                { label: 'Duration', value: 92, accent: '#14B8A6' },
+                { label: 'Consistency', value: 78, accent: '#2563EB' },
                 { label: 'Deep Sleep', value: 85, accent: '#C77DFF' },
-                { label: 'Interruptions', value: 90, accent: '#F4A261' },
+                { label: 'Interruptions', value: 90, accent: '#F97316' },
               ].map((metric) => (
-                <div key={metric.label} className="rounded-xl bg-[#F5FAF5] p-3">
-                  <p style={{ fontSize: '18px', fontWeight: 700 }} className="text-[#222222]">
+                <div key={metric.label} className="rounded-xl bg-[#EEF3F8] p-3">
+                  <p style={{ fontSize: '18px', fontWeight: 700 }} className="text-[#17202E]">
                     {metric.value}
                   </p>
                   <p style={{ fontSize: '11px' }} className="text-[#888]">
@@ -447,8 +447,8 @@ export default function AIOSHealth() {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-[#C2DBC4]/20 bg-white p-5">
-            <h2 style={{ fontSize: '15px', fontWeight: 700 }} className="mb-3 text-[#222222]">
+          <div className="rounded-2xl border border-[#14B8A6]/20 bg-white p-5">
+            <h2 style={{ fontSize: '15px', fontWeight: 700 }} className="mb-3 text-[#17202E]">
               AIOS sleep tips
             </h2>
             <div className="space-y-3">
@@ -458,7 +458,7 @@ export default function AIOSHealth() {
                 'Skip caffeine after 2 PM when tomorrow is high focus.',
                 'Use a short stretch or breathing reset before lights out.',
               ].map((tip) => (
-                <div key={tip} className="rounded-xl bg-[#F5FAF5] p-3">
+                <div key={tip} className="rounded-xl bg-[#EEF3F8] p-3">
                   <p style={{ fontSize: '13px' }} className="text-[#555]">
                     {tip}
                   </p>

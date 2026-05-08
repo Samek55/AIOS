@@ -15,6 +15,15 @@ function decodeBase64url(input) {
   return Buffer.from(`${normalized}${padding}`, 'base64').toString('utf8');
 }
 
+function constantTimeEqual(left, right, encoding = 'utf8') {
+  const leftBuffer = Buffer.from(left || '', encoding);
+  const rightBuffer = Buffer.from(right || '', encoding);
+  if (leftBuffer.length !== rightBuffer.length) {
+    return false;
+  }
+  return crypto.timingSafeEqual(leftBuffer, rightBuffer);
+}
+
 export function hashPassword(password) {
   const salt = crypto.randomBytes(16).toString('hex');
   const hash = crypto.scryptSync(password, salt, 64).toString('hex');
@@ -27,7 +36,7 @@ export function verifyPassword(password, passwordHash) {
   }
   const [salt, storedHash] = passwordHash.split(':');
   const derived = crypto.scryptSync(password, salt, 64).toString('hex');
-  return crypto.timingSafeEqual(Buffer.from(storedHash, 'hex'), Buffer.from(derived, 'hex'));
+  return constantTimeEqual(storedHash, derived, 'hex');
 }
 
 export function createToken(user, expiresInSeconds = 60 * 60 * 24 * 7) {
@@ -71,7 +80,7 @@ export function verifyToken(token) {
     .replaceAll('/', '_')
     .replaceAll('=', '');
 
-  if (signature !== expectedSignature) {
+  if (!constantTimeEqual(signature, expectedSignature)) {
     return null;
   }
 

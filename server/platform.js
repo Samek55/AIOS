@@ -1,4 +1,4 @@
-import { sanitizeUser, verifyPassword, createToken, verifyToken } from './auth.js';
+import { sanitizeUser, verifyPassword, createToken, verifyToken, hashPassword } from './auth.js';
 import { createUserState } from './seed-data.js';
 
 export function findUserById(store, userId) {
@@ -88,7 +88,7 @@ export function registerUser(store, input) {
   const userRecord = {
     id: userId,
     email,
-    password: String(input.password || ''),
+    passwordHash: hashPassword(String(input.password || '')),
     role: 'customer',
     vendorId: null,
     profile,

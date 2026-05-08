@@ -22,20 +22,20 @@ export default function AccountPage() {
 
   return (
     <div className="mx-auto max-w-5xl p-4 lg:p-6">
-      <div className="rounded-[32px] bg-[#222222] p-6 text-white lg:p-8">
+      <div className="rounded-[32px] bg-[#17202E] p-6 text-white lg:p-8">
         <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
           <div className="flex items-center gap-4">
             <ImageWithFallback
               src={profile.avatarUrl}
               alt={profile.name}
-              className="h-20 w-20 rounded-3xl border-4 border-[#C2DBC4]/30 object-cover"
+              className="h-20 w-20 rounded-3xl border-4 border-[#14B8A6]/30 object-cover"
             />
             <div>
               <div className="flex items-center gap-2">
                 <h1 style={{ fontSize: '28px', fontWeight: 700 }}>{profile.name}</h1>
                 <span
                   style={{ fontSize: '10px', fontWeight: 700 }}
-                  className="rounded-full bg-[#C2DBC4]/15 px-2.5 py-1 uppercase tracking-[0.18em] text-[#C2DBC4]"
+                  className="rounded-full bg-[#14B8A6]/15 px-2.5 py-1 uppercase tracking-[0.18em] text-[#14B8A6]"
                 >
                   {user.role}
                 </span>
@@ -50,7 +50,7 @@ export default function AccountPage() {
           </div>
 
           <div className="rounded-3xl border border-white/10 bg-white/5 p-4">
-            <p style={{ fontSize: '11px', fontWeight: 700 }} className="uppercase tracking-[0.2em] text-[#C2DBC4]">
+            <p style={{ fontSize: '11px', fontWeight: 700 }} className="uppercase tracking-[0.2em] text-[#14B8A6]">
               Membership
             </p>
             <p style={{ fontSize: '18px', fontWeight: 700 }} className="mt-2">
@@ -70,9 +70,9 @@ export default function AccountPage() {
           { label: 'Savings Rate', value: `${savingsRate}%`, icon: Wallet },
           { label: 'Unread Alerts', value: notifications.filter((item) => item.unread).length, icon: Shield },
         ].map((card) => (
-          <div key={card.label} className="rounded-2xl border border-[#C2DBC4]/20 bg-white p-5">
-            <card.icon size={18} className="text-[#7BAF80]" />
-            <p style={{ fontSize: '24px', fontWeight: 700 }} className="mt-3 text-[#222222]">
+          <div key={card.label} className="rounded-2xl border border-[#14B8A6]/20 bg-white p-5">
+            <card.icon size={18} className="text-[#0F766E]" />
+            <p style={{ fontSize: '24px', fontWeight: 700 }} className="mt-3 text-[#17202E]">
               {card.value}
             </p>
             <p style={{ fontSize: '12px' }} className="text-[#888]">
@@ -84,14 +84,14 @@ export default function AccountPage() {
 
       <div className="mt-6 grid gap-6 xl:grid-cols-[0.95fr,1.05fr]">
         <div className="space-y-6">
-          <div className="rounded-2xl border border-[#C2DBC4]/20 bg-white p-5">
+          <div className="rounded-2xl border border-[#14B8A6]/20 bg-white p-5">
             <div className="mb-4 flex items-center gap-2">
-              <MapPin size={18} className="text-[#7BAF80]" />
-              <h2 style={{ fontSize: '18px', fontWeight: 700 }} className="text-[#222222]">
+              <MapPin size={18} className="text-[#0F766E]" />
+              <h2 style={{ fontSize: '18px', fontWeight: 700 }} className="text-[#17202E]">
                 Address
               </h2>
             </div>
-            <p style={{ fontSize: '14px', fontWeight: 700 }} className="text-[#222222]">
+            <p style={{ fontSize: '14px', fontWeight: 700 }} className="text-[#17202E]">
               {profile.address.label}
             </p>
             <p style={{ fontSize: '13px' }} className="mt-1 text-[#666]">
@@ -102,10 +102,10 @@ export default function AccountPage() {
             </p>
           </div>
 
-          <div className="rounded-2xl border border-[#C2DBC4]/20 bg-white p-5">
+          <div className="rounded-2xl border border-[#14B8A6]/20 bg-white p-5">
             <div className="mb-4 flex items-center gap-2">
-              <CreditCard size={18} className="text-[#7BAF80]" />
-              <h2 style={{ fontSize: '18px', fontWeight: 700 }} className="text-[#222222]">
+              <CreditCard size={18} className="text-[#0F766E]" />
+              <h2 style={{ fontSize: '18px', fontWeight: 700 }} className="text-[#17202E]">
                 Payment History
               </h2>
             </div>
@@ -116,10 +116,10 @@ export default function AccountPage() {
                 </p>
               ) : (
                 paymentHistory.slice(0, 5).map((payment) => (
-                  <div key={payment.id} className="rounded-2xl bg-[#F5FAF5] p-4">
+                  <div key={payment.id} className="rounded-2xl bg-[#EEF3F8] p-4">
                     <div className="flex items-center justify-between gap-3">
                       <div>
-                        <p style={{ fontSize: '13px', fontWeight: 700 }} className="text-[#222222]">
+                        <p style={{ fontSize: '13px', fontWeight: 700 }} className="text-[#17202E]">
                           {payment.provider} • {payment.method.replaceAll('_', ' ')}
                         </p>
                         <p style={{ fontSize: '11px' }} className="text-[#888]">
@@ -127,7 +127,7 @@ export default function AccountPage() {
                         </p>
                       </div>
                       <div className="text-right">
-                        <p style={{ fontSize: '13px', fontWeight: 700 }} className="text-[#222222]">
+                        <p style={{ fontSize: '13px', fontWeight: 700 }} className="text-[#17202E]">
                           {formatCurrency(payment.amount)}
                         </p>
                         <p style={{ fontSize: '11px' }} className="text-[#888]">
@@ -142,8 +142,8 @@ export default function AccountPage() {
           </div>
         </div>
 
-        <div className="rounded-2xl border border-[#C2DBC4]/20 bg-white p-5">
-          <h2 style={{ fontSize: '18px', fontWeight: 700 }} className="text-[#222222]">
+        <div className="rounded-2xl border border-[#14B8A6]/20 bg-white p-5">
+          <h2 style={{ fontSize: '18px', fontWeight: 700 }} className="text-[#17202E]">
             Recent Orders
           </h2>
           <div className="mt-4 space-y-3">
@@ -153,17 +153,17 @@ export default function AccountPage() {
               </p>
             ) : (
               recentOrders.slice(0, 6).map((order) => (
-                <div key={order.id} className="rounded-2xl bg-[#F5FAF5] p-4">
+                <div key={order.id} className="rounded-2xl bg-[#EEF3F8] p-4">
                   <div className="flex items-center justify-between gap-3">
                     <div>
-                      <p style={{ fontSize: '13px', fontWeight: 700 }} className="text-[#222222]">
+                      <p style={{ fontSize: '13px', fontWeight: 700 }} className="text-[#17202E]">
                         {order.vendorName}
                       </p>
                       <p style={{ fontSize: '11px' }} className="text-[#888]">
                         {order.status} • {order.etaLabel}
                       </p>
                     </div>
-                    <p style={{ fontSize: '13px', fontWeight: 700 }} className="text-[#222222]">
+                    <p style={{ fontSize: '13px', fontWeight: 700 }} className="text-[#17202E]">
                       {formatCurrency(order.subtotal + order.deliveryFee)}
                     </p>
                   </div>

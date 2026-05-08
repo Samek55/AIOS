@@ -48,15 +48,15 @@ export default function AIOSRoutine() {
     <div className="mx-auto max-w-5xl space-y-5 p-4 lg:p-6">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h1 style={{ fontSize: '24px', fontWeight: 700 }} className="text-[#222222]">
+          <h1 style={{ fontSize: '24px', fontWeight: 700 }} className="text-[#17202E]">
             Daily Routine
           </h1>
           <p style={{ fontSize: '13px' }} className="text-[#888]">
             {todayLabel} • Mood mode {mood}
           </p>
         </div>
-        <div className="flex items-center gap-2 rounded-xl bg-[#222222] px-4 py-3 text-white">
-          <Target size={15} className="text-[#C2DBC4]" />
+        <div className="flex items-center gap-2 rounded-xl bg-[#17202E] px-4 py-3 text-white">
+          <Target size={15} className="text-[#14B8A6]" />
           <div>
             <p style={{ fontSize: '17px', fontWeight: 700 }}>{productivityScore}%</p>
             <p style={{ fontSize: '10px' }} className="text-white/50">
@@ -66,16 +66,16 @@ export default function AIOSRoutine() {
         </div>
       </div>
 
-      <div className="rounded-2xl bg-[#222222] p-5 text-white">
+      <div className="rounded-2xl bg-[#17202E] p-5 text-white">
         <div className="mb-3 flex items-center justify-between">
           <p style={{ fontSize: '14px', fontWeight: 600 }}>Today Progress</p>
-          <span style={{ fontSize: '13px', fontWeight: 700 }} className="text-[#C2DBC4]">
+          <span style={{ fontSize: '13px', fontWeight: 700 }} className="text-[#14B8A6]">
             {completedTasks}/{allTasks.length} tasks
           </span>
         </div>
         <div className="mb-4 h-3 overflow-hidden rounded-full bg-white/10">
           <div
-            className="h-full rounded-full bg-[#C2DBC4]"
+            className="h-full rounded-full bg-[#14B8A6]"
             style={{ width: `${productivityScore}%` }}
           />
         </div>
@@ -112,8 +112,8 @@ export default function AIOSRoutine() {
             onClick={() => setActiveTab(tab)}
             className={`flex-1 rounded-xl border py-2 transition-all ${
               activeTab === tab
-                ? 'border-[#222222] bg-[#222222] text-white'
-                : 'border-[#C2DBC4]/30 bg-white text-[#666] hover:border-[#C2DBC4]'
+                ? 'border-[#17202E] bg-[#17202E] text-white'
+                : 'border-[#14B8A6]/30 bg-white text-[#666] hover:border-[#14B8A6]'
             }`}
             style={{ fontSize: '13px', fontWeight: activeTab === tab ? 700 : 500 }}
           >
@@ -131,7 +131,7 @@ export default function AIOSRoutine() {
             return (
               <div
                 key={section.id}
-                className="overflow-hidden rounded-2xl border border-[#C2DBC4]/20 bg-white"
+                className="overflow-hidden rounded-2xl border border-[#14B8A6]/20 bg-white"
               >
                 <button
                   onClick={() =>
@@ -139,10 +139,10 @@ export default function AIOSRoutine() {
                       expandedSection === section.id ? null : section.id,
                     )
                   }
-                  className="flex w-full items-center gap-3 p-4 transition-colors hover:bg-[#F5FAF5]"
+                  className="flex w-full items-center gap-3 p-4 transition-colors hover:bg-[#EEF3F8]"
                 >
                   <div className="min-w-0 flex-1 text-left">
-                    <p style={{ fontSize: '15px', fontWeight: 700 }} className="text-[#222222]">
+                    <p style={{ fontSize: '15px', fontWeight: 700 }} className="text-[#17202E]">
                       {section.label}
                     </p>
                     <p style={{ fontSize: '12px' }} className="text-[#888]">
@@ -152,7 +152,7 @@ export default function AIOSRoutine() {
                   <div className="flex items-center gap-2">
                     <div className="h-1.5 w-16 overflow-hidden rounded-full bg-gray-100">
                       <div
-                        className="h-full rounded-full bg-[#C2DBC4]"
+                        className="h-full rounded-full bg-[#14B8A6]"
                         style={{
                           width: `${(sectionDone / Math.max(sectionTasks.length, 1)) * 100}%`,
                         }}
@@ -172,19 +172,19 @@ export default function AIOSRoutine() {
                       <button
                         key={task.id}
                         onClick={() => toggleTask(task.id)}
-                        className={`flex w-full items-center gap-3 rounded-xl p-3 text-left transition-all hover:bg-[#F5FAF5] ${
+                        className={`flex w-full items-center gap-3 rounded-xl p-3 text-left transition-all hover:bg-[#EEF3F8] ${
                           task.completed ? 'opacity-60' : ''
                         }`}
                       >
                         {task.completed ? (
-                          <CheckCircle2 size={20} className="shrink-0 text-[#7BAF80]" />
+                          <CheckCircle2 size={20} className="shrink-0 text-[#0F766E]" />
                         ) : (
                           <Circle size={20} className="shrink-0 text-[#ccc]" />
                         )}
                         <div className="min-w-0 flex-1">
                           <p
                             style={{ fontSize: '13px', fontWeight: 600 }}
-                            className={task.completed ? 'line-through text-[#aaa]' : 'text-[#222222]'}
+                            className={task.completed ? 'line-through text-[#aaa]' : 'text-[#17202E]'}
                           >
                             {task.title}
                           </p>
@@ -214,7 +214,7 @@ export default function AIOSRoutine() {
                             }
                           }}
                           placeholder={`Add a ${section.label.toLowerCase()} task`}
-                          className="flex-1 rounded-xl border border-[#C2DBC4]/30 bg-[#F5FAF5] px-3 py-2 text-[#222222] outline-none placeholder:text-[#bbb] focus:border-[#C2DBC4]"
+                          className="flex-1 rounded-xl border border-[#14B8A6]/30 bg-[#EEF3F8] px-3 py-2 text-[#17202E] outline-none placeholder:text-[#bbb] focus:border-[#14B8A6]"
                           style={{ fontSize: '13px' }}
                         />
                         <button
@@ -223,7 +223,7 @@ export default function AIOSRoutine() {
                             setNewTaskTitle('');
                             setShowAddTask(null);
                           }}
-                          className="rounded-xl bg-[#222222] px-3 py-2 text-white"
+                          className="rounded-xl bg-[#17202E] px-3 py-2 text-white"
                         >
                           <Plus size={15} />
                         </button>
@@ -240,7 +240,7 @@ export default function AIOSRoutine() {
                     ) : (
                       <button
                         onClick={() => setShowAddTask(section.id)}
-                        className="flex w-full items-center gap-2 rounded-xl px-3 py-2 text-[#888] transition-colors hover:bg-[#F5FAF5] hover:text-[#222222]"
+                        className="flex w-full items-center gap-2 rounded-xl px-3 py-2 text-[#888] transition-colors hover:bg-[#EEF3F8] hover:text-[#17202E]"
                         style={{ fontSize: '13px' }}
                       >
                         <Plus size={14} />
@@ -257,7 +257,7 @@ export default function AIOSRoutine() {
 
       {activeTab === 'habits' ? (
         <div className="space-y-4">
-          <div className="rounded-2xl border border-[#C2DBC4]/20 bg-white p-4">
+          <div className="rounded-2xl border border-[#14B8A6]/20 bg-white p-4">
             <div className="mb-3 flex items-center gap-2">
               <Calendar size={15} className="text-[#888]" />
               <p style={{ fontSize: '13px', fontWeight: 600 }} className="text-[#666]">
@@ -270,12 +270,12 @@ export default function AIOSRoutine() {
                 <div
                   key={`${day}-${index}`}
                   className={`flex-1 rounded-lg py-1.5 text-center ${
-                    index === 6 ? 'bg-[#222222]' : 'bg-[#F5FAF5]'
+                    index === 6 ? 'bg-[#17202E]' : 'bg-[#EEF3F8]'
                   }`}
                 >
                   <p
                     style={{ fontSize: '10px', fontWeight: 700 }}
-                    className={index === 6 ? 'text-[#C2DBC4]' : 'text-[#888]'}
+                    className={index === 6 ? 'text-[#14B8A6]' : 'text-[#888]'}
                   >
                     {day}
                   </p>
@@ -287,7 +287,7 @@ export default function AIOSRoutine() {
           {habits.map((habit) => (
             <div
               key={habit.id}
-              className="rounded-2xl border border-[#C2DBC4]/20 bg-white p-4"
+              className="rounded-2xl border border-[#14B8A6]/20 bg-white p-4"
             >
               <div className="mb-3 flex items-center gap-3">
                 <div
@@ -297,7 +297,7 @@ export default function AIOSRoutine() {
                   <span style={{ fontSize: '14px', fontWeight: 700 }}>{habit.emoji}</span>
                 </div>
                 <div className="min-w-0 flex-1">
-                  <p style={{ fontSize: '14px', fontWeight: 700 }} className="text-[#222222]">
+                  <p style={{ fontSize: '14px', fontWeight: 700 }} className="text-[#17202E]">
                     {habit.name}
                   </p>
                   <div className="mt-1 flex items-center gap-3 text-[#888]">
@@ -316,8 +316,8 @@ export default function AIOSRoutine() {
                   onClick={() => toggleHabit(habit.id)}
                   className={`rounded-xl px-3 py-2 transition-all ${
                     habit.completedDays[6]
-                      ? 'bg-[#222222] text-white'
-                      : 'bg-[#F5FAF5] text-[#666] hover:bg-[#E8F3E9]'
+                      ? 'bg-[#17202E] text-white'
+                      : 'bg-[#EEF3F8] text-[#666] hover:bg-[#E0F7F3]'
                   }`}
                   style={{ fontSize: '12px', fontWeight: 700 }}
                 >
@@ -357,9 +357,9 @@ export default function AIOSRoutine() {
             </div>
           ))}
 
-          <div className="flex items-center gap-4 rounded-2xl bg-[#222222] p-4 text-white">
-            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#C2DBC4]">
-              <Trophy size={22} className="text-[#222222]" />
+          <div className="flex items-center gap-4 rounded-2xl bg-[#17202E] p-4 text-white">
+            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#14B8A6]">
+              <Trophy size={22} className="text-[#17202E]" />
             </div>
             <div>
               <p style={{ fontSize: '13px', fontWeight: 700 }}>Consistency is building</p>
@@ -373,14 +373,14 @@ export default function AIOSRoutine() {
 
       {activeTab === 'focus' ? (
         <div className="space-y-4">
-          <div className="rounded-2xl border border-[#C2DBC4]/20 bg-white p-6 text-center">
+          <div className="rounded-2xl border border-[#14B8A6]/20 bg-white p-6 text-center">
             <p
               style={{ fontSize: '11px', fontWeight: 700 }}
-              className="mb-1 uppercase tracking-wide text-[#7BAF80]"
+              className="mb-1 uppercase tracking-wide text-[#0F766E]"
             >
               Focus mode
             </p>
-            <h2 style={{ fontSize: '28px', fontWeight: 700 }} className="text-[#222222]">
+            <h2 style={{ fontSize: '28px', fontWeight: 700 }} className="text-[#17202E]">
               25:00
             </h2>
             <p style={{ fontSize: '12px' }} className="mt-1 text-[#888]">
@@ -388,14 +388,14 @@ export default function AIOSRoutine() {
             </p>
             <div className="mt-4 flex justify-center gap-3">
               <button
-                className="flex items-center gap-2 rounded-xl bg-[#222222] px-6 py-2.5 text-white transition-colors hover:bg-[#333333]"
+                className="flex items-center gap-2 rounded-xl bg-[#17202E] px-6 py-2.5 text-white transition-colors hover:bg-[#243244]"
                 style={{ fontSize: '14px', fontWeight: 700 }}
               >
                 <Zap size={15} />
                 Start focus
               </button>
               <button
-                className="rounded-xl border border-[#C2DBC4]/30 bg-[#F5FAF5] px-5 py-2.5 text-[#666] transition-colors hover:bg-[#E8F3E9]"
+                className="rounded-xl border border-[#14B8A6]/30 bg-[#EEF3F8] px-5 py-2.5 text-[#666] transition-colors hover:bg-[#E0F7F3]"
                 style={{ fontSize: '14px', fontWeight: 600 }}
               >
                 Reset
@@ -404,24 +404,24 @@ export default function AIOSRoutine() {
           </div>
 
           <div className="grid grid-cols-3 gap-3">
-            <div className="rounded-2xl border border-[#C2DBC4]/20 bg-white p-4 text-center">
-              <p style={{ fontSize: '18px', fontWeight: 700 }} className="text-[#222222]">
+            <div className="rounded-2xl border border-[#14B8A6]/20 bg-white p-4 text-center">
+              <p style={{ fontSize: '18px', fontWeight: 700 }} className="text-[#17202E]">
                 4
               </p>
               <p style={{ fontSize: '11px' }} className="text-[#888]">
                 Focus sessions
               </p>
             </div>
-            <div className="rounded-2xl border border-[#C2DBC4]/20 bg-white p-4 text-center">
-              <p style={{ fontSize: '18px', fontWeight: 700 }} className="text-[#222222]">
+            <div className="rounded-2xl border border-[#14B8A6]/20 bg-white p-4 text-center">
+              <p style={{ fontSize: '18px', fontWeight: 700 }} className="text-[#17202E]">
                 100 min
               </p>
               <p style={{ fontSize: '11px' }} className="text-[#888]">
                 Focus time
               </p>
             </div>
-            <div className="rounded-2xl border border-[#C2DBC4]/20 bg-white p-4 text-center">
-              <p style={{ fontSize: '18px', fontWeight: 700 }} className="text-[#222222]">
+            <div className="rounded-2xl border border-[#14B8A6]/20 bg-white p-4 text-center">
+              <p style={{ fontSize: '18px', fontWeight: 700 }} className="text-[#17202E]">
                 3
               </p>
               <p style={{ fontSize: '11px' }} className="text-[#888]">

@@ -44,10 +44,10 @@ export default function AdminConsole() {
 
   return (
     <div className="mx-auto max-w-7xl p-4 lg:p-6">
-      <div className="mb-6 rounded-3xl bg-[#222222] p-6 text-white">
+      <div className="mb-6 rounded-3xl bg-[#17202E] p-6 text-white">
         <div className="flex items-center gap-3">
-          <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#C2DBC4]">
-            <Shield size={20} className="text-[#222222]" />
+          <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#14B8A6]">
+            <Shield size={20} className="text-[#17202E]" />
           </div>
           <div>
             <h1 style={{ fontSize: '24px', fontWeight: 700 }}>Admin Console</h1>
@@ -65,9 +65,9 @@ export default function AdminConsole() {
           { label: 'Active Orders', value: overview.activeOrders, icon: Activity },
           { label: 'Monthly GMV', value: formatCurrency(overview.monthlyGmv), icon: Shield },
         ].map((card) => (
-          <div key={card.label} className="rounded-2xl border border-[#C2DBC4]/20 bg-white p-5">
-            <card.icon size={18} className="text-[#7BAF80]" />
-            <p style={{ fontSize: '25px', fontWeight: 700 }} className="mt-3 text-[#222222]">
+          <div key={card.label} className="rounded-2xl border border-[#14B8A6]/20 bg-white p-5">
+            <card.icon size={18} className="text-[#0F766E]" />
+            <p style={{ fontSize: '25px', fontWeight: 700 }} className="mt-3 text-[#17202E]">
               {card.value}
             </p>
             <p style={{ fontSize: '12px' }} className="text-[#888]">
@@ -78,9 +78,9 @@ export default function AdminConsole() {
       </div>
 
       <div className="mt-6 grid gap-6 xl:grid-cols-[1.2fr,0.8fr]">
-        <div className="rounded-2xl border border-[#C2DBC4]/20 bg-white p-5">
+        <div className="rounded-2xl border border-[#14B8A6]/20 bg-white p-5">
           <div className="mb-4 flex items-center justify-between">
-            <h2 style={{ fontSize: '18px', fontWeight: 700 }} className="text-[#222222]">
+            <h2 style={{ fontSize: '18px', fontWeight: 700 }} className="text-[#17202E]">
               Recent Audit Events
             </h2>
             <span style={{ fontSize: '12px' }} className="text-[#888]">
@@ -95,7 +95,7 @@ export default function AdminConsole() {
               >
                 <div className="flex items-center justify-between gap-3">
                   <div>
-                    <p style={{ fontSize: '13px', fontWeight: 700 }} className="text-[#222222]">
+                    <p style={{ fontSize: '13px', fontWeight: 700 }} className="text-[#17202E]">
                       {event.action.replaceAll('_', ' ')}
                     </p>
                     <p style={{ fontSize: '11px' }} className="text-[#888]">
@@ -111,16 +111,16 @@ export default function AdminConsole() {
           </div>
         </div>
 
-        <div className="rounded-2xl border border-[#C2DBC4]/20 bg-white p-5">
-          <h2 style={{ fontSize: '18px', fontWeight: 700 }} className="text-[#222222]">
+        <div className="rounded-2xl border border-[#14B8A6]/20 bg-white p-5">
+          <h2 style={{ fontSize: '18px', fontWeight: 700 }} className="text-[#17202E]">
             User Accounts
           </h2>
           <div className="mt-4 space-y-3">
             {users.map((user) => (
-              <div key={user.id} className="rounded-2xl bg-[#F5FAF5] p-4">
+              <div key={user.id} className="rounded-2xl bg-[#EEF3F8] p-4">
                 <div className="flex items-center justify-between gap-3">
                   <div>
-                    <p style={{ fontSize: '13px', fontWeight: 700 }} className="text-[#222222]">
+                    <p style={{ fontSize: '13px', fontWeight: 700 }} className="text-[#17202E]">
                       {user.profile.name}
                     </p>
                     <p style={{ fontSize: '11px' }} className="text-[#777]">

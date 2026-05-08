@@ -157,17 +157,17 @@ function generateResponse(query: string): Omit<Message, 'id'> {
 }
 
 const cardColors: Record<string, string> = {
-  food: '#F4A26120',
-  health: '#C2DBC420',
-  task: '#7BA7DC20',
-  finance: '#7BAF8020',
+  food: '#F9731620',
+  health: '#14B8A620',
+  task: '#2563EB20',
+  finance: '#0F766E20',
 };
 
 const cardAccents: Record<string, string> = {
-  food: '#F4A261',
-  health: '#7BAF80',
-  task: '#7BA7DC',
-  finance: '#5A9E60',
+  food: '#F97316',
+  health: '#0F766E',
+  task: '#2563EB',
+  finance: '#0F766E',
 };
 
 export default function AIAssistant() {
@@ -201,28 +201,28 @@ export default function AIAssistant() {
   };
 
   return (
-    <div className="flex h-full bg-[#F5FAF5]" style={{height: 'calc(100vh - 61px)'}}>
+    <div className="flex h-full bg-[#EEF3F8]" style={{height: 'calc(100vh - 61px)'}}>
       {/* Sidebar - chat history */}
       <div className={`
         fixed lg:relative inset-y-0 left-0 z-30 lg:z-auto
-        w-64 bg-white border-r border-[#C2DBC4]/30 flex flex-col shrink-0
+        w-64 bg-white border-r border-[#14B8A6]/30 flex flex-col shrink-0
         transition-transform duration-300
         ${showSidebar ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
       `}>
-        <div className="p-4 border-b border-[#C2DBC4]/20 flex items-center justify-between">
-          <h2 style={{fontSize:'15px', fontWeight:700}} className="text-[#222222]">Conversations</h2>
+        <div className="p-4 border-b border-[#14B8A6]/20 flex items-center justify-between">
+          <h2 style={{fontSize:'15px', fontWeight:700}} className="text-[#17202E]">Conversations</h2>
           <div className="flex items-center gap-2">
-            <button className="p-1.5 hover:bg-[#E8F3E9] rounded-lg transition-colors">
+            <button className="p-1.5 hover:bg-[#E0F7F3] rounded-lg transition-colors">
               <Search size={15} className="text-[#888]" />
             </button>
             <button
               onClick={() => { setMessages(INITIAL_MESSAGES); }}
-              className="p-1.5 hover:bg-[#E8F3E9] rounded-lg transition-colors"
+              className="p-1.5 hover:bg-[#E0F7F3] rounded-lg transition-colors"
               title="New chat"
             >
               <Plus size={15} className="text-[#888]" />
             </button>
-            <button onClick={() => setShowSidebar(false)} className="lg:hidden p-1.5 hover:bg-[#E8F3E9] rounded-lg">
+            <button onClick={() => setShowSidebar(false)} className="lg:hidden p-1.5 hover:bg-[#E0F7F3] rounded-lg">
               <X size={15} />
             </button>
           </div>
@@ -230,12 +230,12 @@ export default function AIAssistant() {
 
         {/* Current chat */}
         <div className="p-3">
-          <button className="w-full flex items-center gap-3 p-3 bg-[#E8F3E9] rounded-xl border border-[#C2DBC4]/30">
-            <div className="w-7 h-7 rounded-lg bg-[#C2DBC4] flex items-center justify-center shrink-0">
-              <Sparkles size={13} className="text-[#222222]" />
+          <button className="w-full flex items-center gap-3 p-3 bg-[#E0F7F3] rounded-xl border border-[#14B8A6]/30">
+            <div className="w-7 h-7 rounded-lg bg-[#14B8A6] flex items-center justify-center shrink-0">
+              <Sparkles size={13} className="text-[#17202E]" />
             </div>
             <div className="text-left min-w-0">
-              <p style={{fontSize:'12px', fontWeight:600}} className="text-[#222222] truncate">New Conversation</p>
+              <p style={{fontSize:'12px', fontWeight:600}} className="text-[#17202E] truncate">New Conversation</p>
               <p style={{fontSize:'10px'}} className="text-[#888]">Just now</p>
             </div>
           </button>
@@ -246,7 +246,7 @@ export default function AIAssistant() {
           <p style={{fontSize:'11px'}} className="text-[#aaa] uppercase tracking-wide px-1 mb-2">Recent</p>
           <div className="space-y-1">
             {pastChats.map((chat, i) => (
-              <button key={i} className="w-full flex items-center gap-3 p-2.5 hover:bg-[#F5FAF5] rounded-xl transition-colors text-left group">
+              <button key={i} className="w-full flex items-center gap-3 p-2.5 hover:bg-[#EEF3F8] rounded-xl transition-colors text-left group">
                 <div className="w-7 h-7 rounded-lg bg-gray-100 flex items-center justify-center shrink-0">
                   <Bot size={13} className="text-[#888]" />
                 </div>
@@ -261,10 +261,10 @@ export default function AIAssistant() {
         </div>
 
         {/* AIOS branding at bottom */}
-        <div className="p-4 border-t border-[#C2DBC4]/20">
-          <div className="p-3 rounded-xl bg-[#222222] text-center">
+        <div className="p-4 border-t border-[#14B8A6]/20">
+          <div className="p-3 rounded-xl bg-[#17202E] text-center">
             <div className="flex items-center justify-center gap-2 mb-1">
-              <Zap size={14} className="text-[#C2DBC4]" />
+              <Zap size={14} className="text-[#14B8A6]" />
               <span style={{fontSize:'12px', fontWeight:700}} className="text-white">AIOS Pro</span>
             </div>
             <p style={{fontSize:'10px'}} className="text-white/50">Unlimited AI assistance</p>
@@ -280,24 +280,24 @@ export default function AIAssistant() {
       {/* Main chat area */}
       <div className="flex-1 flex flex-col min-w-0">
         {/* Chat header */}
-        <div className="bg-white border-b border-[#C2DBC4]/30 px-4 py-3 flex items-center gap-3">
-          <button onClick={() => setShowSidebar(true)} className="lg:hidden p-1.5 hover:bg-[#E8F3E9] rounded-lg">
+        <div className="bg-white border-b border-[#14B8A6]/30 px-4 py-3 flex items-center gap-3">
+          <button onClick={() => setShowSidebar(true)} className="lg:hidden p-1.5 hover:bg-[#E0F7F3] rounded-lg">
             <Bot size={18} className="text-[#666]" />
           </button>
-          <div className="w-9 h-9 rounded-xl bg-[#222222] flex items-center justify-center">
-            <Sparkles size={17} className="text-[#C2DBC4]" />
+          <div className="w-9 h-9 rounded-xl bg-[#17202E] flex items-center justify-center">
+            <Sparkles size={17} className="text-[#14B8A6]" />
           </div>
           <div>
-            <h2 style={{fontSize:'15px', fontWeight:700}} className="text-[#222222]">AIOS Assistant</h2>
+            <h2 style={{fontSize:'15px', fontWeight:700}} className="text-[#17202E]">AIOS Assistant</h2>
             <div className="flex items-center gap-1.5">
               <div className="w-2 h-2 rounded-full bg-green-400" />
               <p style={{fontSize:'11px'}} className="text-[#888]">Online · Knows your full profile</p>
             </div>
           </div>
           <div className="ml-auto flex items-center gap-2">
-            <div className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 bg-[#E8F3E9] rounded-lg">
-              <Star size={12} className="text-[#7BAF80] fill-[#7BAF80]" />
-              <span style={{fontSize:'11px', fontWeight:600}} className="text-[#5A9E60]">GPT-4 Powered</span>
+            <div className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 bg-[#E0F7F3] rounded-lg">
+              <Star size={12} className="text-[#0F766E] fill-[#0F766E]" />
+              <span style={{fontSize:'11px', fontWeight:600}} className="text-[#0F766E]">GPT-4 Powered</span>
             </div>
           </div>
         </div>
@@ -313,8 +313,8 @@ export default function AIAssistant() {
               { icon: Wallet, label: '$3,240 Budget' },
               { icon: Clock, label: '5 tasks today' },
             ].map((item, i) => (
-              <div key={i} className="flex items-center gap-1.5 px-2.5 py-1 bg-white rounded-lg border border-[#C2DBC4]/20">
-                <item.icon size={11} className="text-[#7BAF80]" />
+              <div key={i} className="flex items-center gap-1.5 px-2.5 py-1 bg-white rounded-lg border border-[#14B8A6]/20">
+                <item.icon size={11} className="text-[#0F766E]" />
                 <span style={{fontSize:'11px'}} className="text-[#666]">{item.label}</span>
               </div>
             ))}
@@ -324,11 +324,11 @@ export default function AIAssistant() {
             <div key={msg.id} className={`flex gap-3 ${msg.role === 'user' ? 'flex-row-reverse' : ''}`}>
               {/* Avatar */}
               <div className={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 ${
-                msg.role === 'assistant' ? 'bg-[#222222]' : 'bg-[#C2DBC4]'
+                msg.role === 'assistant' ? 'bg-[#17202E]' : 'bg-[#14B8A6]'
               }`}>
                 {msg.role === 'assistant'
-                  ? <Sparkles size={15} className="text-[#C2DBC4]" />
-                  : <User size={15} className="text-[#222222]" />
+                  ? <Sparkles size={15} className="text-[#14B8A6]" />
+                  : <User size={15} className="text-[#17202E]" />
                 }
               </div>
 
@@ -336,8 +336,8 @@ export default function AIAssistant() {
               <div className={`max-w-[80%] space-y-2`}>
                 <div className={`px-4 py-3 rounded-2xl ${
                   msg.role === 'user'
-                    ? 'bg-[#222222] text-white rounded-tr-sm'
-                    : 'bg-white border border-[#C2DBC4]/20 text-[#333] rounded-tl-sm'
+                    ? 'bg-[#17202E] text-white rounded-tr-sm'
+                    : 'bg-white border border-[#14B8A6]/20 text-[#333] rounded-tl-sm'
                 }`}>
                   <p style={{fontSize:'14px', lineHeight:'1.6'}}>
                     {msg.text.split('**').map((part, i) =>
@@ -363,7 +363,7 @@ export default function AIAssistant() {
                       >
                         <span className="text-xl shrink-0">{item.emoji}</span>
                         <div className="flex-1 min-w-0">
-                          <p style={{fontSize:'13px', fontWeight:600}} className="text-[#222222] truncate">{item.title}</p>
+                          <p style={{fontSize:'13px', fontWeight:600}} className="text-[#17202E] truncate">{item.title}</p>
                           <p style={{fontSize:'11px'}} className="text-[#666] truncate">{item.sub}</p>
                         </div>
                         {item.action && (
@@ -385,14 +385,14 @@ export default function AIAssistant() {
           {/* Typing indicator */}
           {isTyping && (
             <div className="flex gap-3">
-              <div className="w-8 h-8 rounded-xl bg-[#222222] flex items-center justify-center shrink-0">
-                <Sparkles size={15} className="text-[#C2DBC4]" />
+              <div className="w-8 h-8 rounded-xl bg-[#17202E] flex items-center justify-center shrink-0">
+                <Sparkles size={15} className="text-[#14B8A6]" />
               </div>
-              <div className="px-4 py-3 bg-white rounded-2xl rounded-tl-sm border border-[#C2DBC4]/20 flex items-center gap-1">
+              <div className="px-4 py-3 bg-white rounded-2xl rounded-tl-sm border border-[#14B8A6]/20 flex items-center gap-1">
                 {[0, 1, 2].map(i => (
                   <div
                     key={i}
-                    className="w-2 h-2 rounded-full bg-[#C2DBC4] animate-bounce"
+                    className="w-2 h-2 rounded-full bg-[#14B8A6] animate-bounce"
                     style={{animationDelay: `${i * 0.15}s`}}
                   />
                 ))}
@@ -403,12 +403,12 @@ export default function AIAssistant() {
         </div>
 
         {/* Quick chips */}
-        <div className="px-4 py-2 flex gap-2 overflow-x-auto scrollbar-hide border-t border-[#C2DBC4]/20 bg-white">
+        <div className="px-4 py-2 flex gap-2 overflow-x-auto scrollbar-hide border-t border-[#14B8A6]/20 bg-white">
           {quickChips.map((chip) => (
             <button
               key={chip.label}
               onClick={() => sendMessage(chip.query)}
-              className="flex items-center gap-1.5 px-3 py-1.5 bg-[#F5FAF5] border border-[#C2DBC4]/30 rounded-full hover:bg-[#E8F3E9] hover:border-[#C2DBC4] transition-all whitespace-nowrap"
+              className="flex items-center gap-1.5 px-3 py-1.5 bg-[#EEF3F8] border border-[#14B8A6]/30 rounded-full hover:bg-[#E0F7F3] hover:border-[#14B8A6] transition-all whitespace-nowrap"
               style={{fontSize:'12px', fontWeight:500}}
             >
               {chip.label}
@@ -417,11 +417,11 @@ export default function AIAssistant() {
         </div>
 
         {/* Input area */}
-        <div className="bg-white border-t border-[#C2DBC4]/20 p-4">
+        <div className="bg-white border-t border-[#14B8A6]/20 p-4">
           <form onSubmit={handleSubmit} className="flex gap-3 items-center">
             <button
               type="button"
-              className="p-2.5 rounded-xl bg-[#F5FAF5] border border-[#C2DBC4]/30 text-[#888] hover:bg-[#E8F3E9] transition-colors shrink-0"
+              className="p-2.5 rounded-xl bg-[#EEF3F8] border border-[#14B8A6]/30 text-[#888] hover:bg-[#E0F7F3] transition-colors shrink-0"
             >
               <Mic size={18} />
             </button>
@@ -432,7 +432,7 @@ export default function AIAssistant() {
                 value={input}
                 onChange={e => setInput(e.target.value)}
                 placeholder="Ask AIOS anything... order food, plan your day, check health"
-                className="w-full px-4 py-2.5 bg-[#F5FAF5] border border-[#C2DBC4]/30 rounded-xl text-[#222] placeholder:text-[#bbb] outline-none focus:border-[#C2DBC4] transition-colors"
+                className="w-full px-4 py-2.5 bg-[#EEF3F8] border border-[#14B8A6]/30 rounded-xl text-[#222] placeholder:text-[#bbb] outline-none focus:border-[#14B8A6] transition-colors"
                 style={{fontSize:'14px'}}
                 disabled={isTyping}
               />
@@ -440,7 +440,7 @@ export default function AIAssistant() {
             <button
               type="submit"
               disabled={!input.trim() || isTyping}
-              className="p-2.5 rounded-xl bg-[#222222] text-[#C2DBC4] hover:bg-[#333] disabled:opacity-40 disabled:cursor-not-allowed transition-all shrink-0"
+              className="p-2.5 rounded-xl bg-[#17202E] text-[#14B8A6] hover:bg-[#333] disabled:opacity-40 disabled:cursor-not-allowed transition-all shrink-0"
             >
               <Send size={18} />
             </button>

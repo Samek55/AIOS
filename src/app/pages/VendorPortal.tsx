@@ -79,10 +79,10 @@ export default function VendorPortal() {
 
   return (
     <div className="mx-auto max-w-7xl p-4 lg:p-6">
-      <div className="mb-6 rounded-3xl bg-[#222222] p-6 text-white">
+      <div className="mb-6 rounded-3xl bg-[#17202E] p-6 text-white">
         <div className="flex items-center gap-3">
-          <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#C2DBC4]">
-            <Store size={20} className="text-[#222222]" />
+          <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#14B8A6]">
+            <Store size={20} className="text-[#17202E]" />
           </div>
           <div>
             <h1 style={{ fontSize: '24px', fontWeight: 700 }}>
@@ -97,9 +97,9 @@ export default function VendorPortal() {
 
       <div className="grid gap-4 md:grid-cols-3">
         {stats.map((stat) => (
-          <div key={stat.label} className="rounded-2xl border border-[#C2DBC4]/20 bg-white p-5">
-            <stat.icon size={18} className="text-[#7BAF80]" />
-            <p style={{ fontSize: '24px', fontWeight: 700 }} className="mt-3 text-[#222222]">
+          <div key={stat.label} className="rounded-2xl border border-[#14B8A6]/20 bg-white p-5">
+            <stat.icon size={18} className="text-[#0F766E]" />
+            <p style={{ fontSize: '24px', fontWeight: 700 }} className="mt-3 text-[#17202E]">
               {stat.value}
             </p>
             <p style={{ fontSize: '12px' }} className="text-[#888]">
@@ -110,10 +110,10 @@ export default function VendorPortal() {
       </div>
 
       <div className="mt-6 grid gap-6 xl:grid-cols-[0.9fr,1.1fr]">
-        <div className="rounded-2xl border border-[#C2DBC4]/20 bg-white p-5">
+        <div className="rounded-2xl border border-[#14B8A6]/20 bg-white p-5">
           <div className="mb-4 flex items-center gap-2">
-            <PackagePlus size={18} className="text-[#7BAF80]" />
-            <h2 style={{ fontSize: '18px', fontWeight: 700 }} className="text-[#222222]">
+            <PackagePlus size={18} className="text-[#0F766E]" />
+            <h2 style={{ fontSize: '18px', fontWeight: 700 }} className="text-[#17202E]">
               Add Product
             </h2>
           </div>
@@ -122,7 +122,7 @@ export default function VendorPortal() {
               value={form.name}
               onChange={(event) => setForm((current) => ({ ...current, name: event.target.value }))}
               placeholder="Product name"
-              className="w-full rounded-2xl border border-[#C2DBC4]/30 bg-[#F5FAF5] px-4 py-3 outline-none"
+              className="w-full rounded-2xl border border-[#14B8A6]/30 bg-[#EEF3F8] px-4 py-3 outline-none"
             />
             <textarea
               value={form.description}
@@ -130,7 +130,7 @@ export default function VendorPortal() {
                 setForm((current) => ({ ...current, description: event.target.value }))
               }
               placeholder="Description"
-              className="min-h-28 w-full rounded-2xl border border-[#C2DBC4]/30 bg-[#F5FAF5] px-4 py-3 outline-none"
+              className="min-h-28 w-full rounded-2xl border border-[#14B8A6]/30 bg-[#EEF3F8] px-4 py-3 outline-none"
             />
             <div className="grid gap-3 sm:grid-cols-2">
               <input
@@ -139,7 +139,7 @@ export default function VendorPortal() {
                   setForm((current) => ({ ...current, price: event.target.value }))
                 }
                 placeholder="Price"
-                className="w-full rounded-2xl border border-[#C2DBC4]/30 bg-[#F5FAF5] px-4 py-3 outline-none"
+                className="w-full rounded-2xl border border-[#14B8A6]/30 bg-[#EEF3F8] px-4 py-3 outline-none"
               />
               <input
                 value={form.stockCount}
@@ -147,19 +147,19 @@ export default function VendorPortal() {
                   setForm((current) => ({ ...current, stockCount: event.target.value }))
                 }
                 placeholder="Stock count"
-                className="w-full rounded-2xl border border-[#C2DBC4]/30 bg-[#F5FAF5] px-4 py-3 outline-none"
+                className="w-full rounded-2xl border border-[#14B8A6]/30 bg-[#EEF3F8] px-4 py-3 outline-none"
               />
             </div>
             <input
               value={form.tags}
               onChange={(event) => setForm((current) => ({ ...current, tags: event.target.value }))}
               placeholder="Tags, comma separated"
-              className="w-full rounded-2xl border border-[#C2DBC4]/30 bg-[#F5FAF5] px-4 py-3 outline-none"
+              className="w-full rounded-2xl border border-[#14B8A6]/30 bg-[#EEF3F8] px-4 py-3 outline-none"
             />
             <button
               onClick={() => void saveNewProduct()}
               disabled={saving}
-              className="flex w-full items-center justify-center gap-2 rounded-2xl bg-[#222222] px-4 py-3 text-white transition-colors hover:bg-[#333333] disabled:opacity-70"
+              className="flex w-full items-center justify-center gap-2 rounded-2xl bg-[#17202E] px-4 py-3 text-white transition-colors hover:bg-[#243244] disabled:opacity-70"
               style={{ fontSize: '14px', fontWeight: 700 }}
             >
               {saving ? 'Saving...' : 'Publish Product'}
@@ -168,16 +168,16 @@ export default function VendorPortal() {
           </div>
         </div>
 
-        <div className="rounded-2xl border border-[#C2DBC4]/20 bg-white p-5">
-          <h2 style={{ fontSize: '18px', fontWeight: 700 }} className="text-[#222222]">
+        <div className="rounded-2xl border border-[#14B8A6]/20 bg-white p-5">
+          <h2 style={{ fontSize: '18px', fontWeight: 700 }} className="text-[#17202E]">
             Catalog
           </h2>
           <div className="mt-4 space-y-3">
             {dashboard.products.map((product) => (
-              <div key={product.id} className="rounded-2xl bg-[#F5FAF5] p-4">
+              <div key={product.id} className="rounded-2xl bg-[#EEF3F8] p-4">
                 <div className="flex items-center justify-between gap-3">
                   <div>
-                    <p style={{ fontSize: '14px', fontWeight: 700 }} className="text-[#222222]">
+                    <p style={{ fontSize: '14px', fontWeight: 700 }} className="text-[#17202E]">
                       {product.name}
                     </p>
                     <p style={{ fontSize: '11px' }} className="text-[#888]">
@@ -188,7 +188,7 @@ export default function VendorPortal() {
                     onClick={() => void toggleProduct(product)}
                     className={`rounded-full px-3 py-1.5 ${
                       product.active === false
-                        ? 'bg-[#222222] text-white'
+                        ? 'bg-[#17202E] text-white'
                         : 'bg-white text-[#666]'
                     }`}
                     style={{ fontSize: '11px', fontWeight: 700 }}

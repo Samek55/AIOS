@@ -48,26 +48,26 @@ const initialTasks: Record<string, Task[]> = {
 };
 
 const initialHabits: Habit[] = [
-  { id: 1, name: 'Morning Workout', emoji: '💪', streak: 12, goal: 30, completed: [true, true, true, true, true, true, false], color: '#C2DBC4' },
-  { id: 2, name: 'Drink 8 Glasses', emoji: '💧', streak: 8, goal: 21, completed: [true, true, false, true, true, true, false], color: '#7BA7DC' },
+  { id: 1, name: 'Morning Workout', emoji: '💪', streak: 12, goal: 30, completed: [true, true, true, true, true, true, false], color: '#14B8A6' },
+  { id: 2, name: 'Drink 8 Glasses', emoji: '💧', streak: 8, goal: 21, completed: [true, true, false, true, true, true, false], color: '#2563EB' },
   { id: 3, name: 'Read Daily', emoji: '📚', streak: 5, goal: 30, completed: [true, false, true, true, true, false, false], color: '#C77DFF' },
-  { id: 4, name: 'Meditate', emoji: '🧘', streak: 15, goal: 30, completed: [true, true, true, true, true, true, false], color: '#F4A261' },
-  { id: 5, name: 'No Junk Food', emoji: '🥗', streak: 3, goal: 14, completed: [false, true, true, true, false, false, false], color: '#7BAF80' },
+  { id: 4, name: 'Meditate', emoji: '🧘', streak: 15, goal: 30, completed: [true, true, true, true, true, true, false], color: '#F97316' },
+  { id: 5, name: 'No Junk Food', emoji: '🥗', streak: 3, goal: 14, completed: [false, true, true, true, false, false, false], color: '#0F766E' },
 ];
 
 const tagColors: Record<string, { bg: string; text: string }> = {
-  fitness: { bg: '#E8F3E9', text: '#5A9E60' },
+  fitness: { bg: '#E0F7F3', text: '#0F766E' },
   work: { bg: '#E8F0FE', text: '#4A7CC7' },
   health: { bg: '#FFF0E8', text: '#D4693A' },
   wellness: { bg: '#F3E8FE', text: '#8B4EC4' },
   learning: { bg: '#FEF8E8', text: '#B8860B' },
-  planning: { bg: '#F5FAF5', text: '#5A7A5A' },
+  planning: { bg: '#EEF3F8', text: '#5A7A5A' },
 };
 
 const priorityColors: Record<string, string> = {
   high: '#E63946',
-  medium: '#F4A261',
-  low: '#C2DBC4',
+  medium: '#F97316',
+  low: '#14B8A6',
 };
 
 export default function Routine() {
@@ -122,36 +122,36 @@ export default function Routine() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 style={{ fontSize: '24px', fontWeight: 700 }} className="text-[#222222]">Daily Routine</h1>
+          <h1 style={{ fontSize: '24px', fontWeight: 700 }} className="text-[#17202E]">Daily Routine</h1>
           <p style={{ fontSize: '13px' }} className="text-[#888]">Sunday, April 5, 2026</p>
         </div>
         <div className="text-right">
           <div className="flex items-center gap-2 justify-end">
-            <div className="w-8 h-8 rounded-xl bg-[#E8F3E9] flex items-center justify-center">
-              <Target size={15} className="text-[#7BAF80]" />
+            <div className="w-8 h-8 rounded-xl bg-[#E0F7F3] flex items-center justify-center">
+              <Target size={15} className="text-[#0F766E]" />
             </div>
-            <span style={{ fontSize: '22px', fontWeight: 700 }} className="text-[#222222]">{productivity}%</span>
+            <span style={{ fontSize: '22px', fontWeight: 700 }} className="text-[#17202E]">{productivity}%</span>
           </div>
           <p style={{ fontSize: '11px' }} className="text-[#888]">Productivity Score</p>
         </div>
       </div>
 
       {/* Progress Overview */}
-      <div className="bg-[#222222] rounded-2xl p-5">
+      <div className="bg-[#17202E] rounded-2xl p-5">
         <div className="flex items-center justify-between mb-3">
           <p style={{ fontSize: '14px', fontWeight: 600 }} className="text-white">Today's Progress</p>
-          <span style={{ fontSize: '13px', fontWeight: 700 }} className="text-[#C2DBC4]">{doneTasks}/{allTasks.length} tasks</span>
+          <span style={{ fontSize: '13px', fontWeight: 700 }} className="text-[#14B8A6]">{doneTasks}/{allTasks.length} tasks</span>
         </div>
         <div className="h-3 bg-white/10 rounded-full overflow-hidden mb-4">
           <div
-            className="h-full bg-[#C2DBC4] rounded-full transition-all duration-500"
+            className="h-full bg-[#14B8A6] rounded-full transition-all duration-500"
             style={{ width: `${productivity}%` }}
           />
         </div>
         <div className="grid grid-cols-3 gap-4">
           {[
-            { label: 'Done', value: doneTasks, color: '#C2DBC4', icon: '✅' },
-            { label: 'Remaining', value: allTasks.length - doneTasks, color: '#F4A261', icon: '⏳' },
+            { label: 'Done', value: doneTasks, color: '#14B8A6', icon: '✅' },
+            { label: 'Remaining', value: allTasks.length - doneTasks, color: '#F97316', icon: '⏳' },
             { label: 'Streak', value: '5 🔥', color: '#C77DFF', icon: '🎯' },
           ].map(s => (
             <div key={s.label} className="text-center">
@@ -170,8 +170,8 @@ export default function Routine() {
             onClick={() => setActiveTab(tab)}
             className={`flex-1 py-2 rounded-xl capitalize transition-all border ${
               activeTab === tab
-                ? 'bg-[#222222] text-white border-[#222222]'
-                : 'bg-white text-[#666] border-[#C2DBC4]/30 hover:border-[#C2DBC4]'
+                ? 'bg-[#17202E] text-white border-[#17202E]'
+                : 'bg-white text-[#666] border-[#14B8A6]/30 hover:border-[#14B8A6]'
             }`}
             style={{ fontSize: '13px', fontWeight: activeTab === tab ? 600 : 400 }}
           >
@@ -187,19 +187,19 @@ export default function Routine() {
             const done = sectionTasks.filter(t => t.done).length;
             const isExpanded = expandedSection !== key;
             return (
-              <div key={key} className="bg-white rounded-2xl border border-[#C2DBC4]/20 overflow-hidden">
+              <div key={key} className="bg-white rounded-2xl border border-[#14B8A6]/20 overflow-hidden">
                 <button
                   onClick={() => setExpandedSection(expandedSection === key ? null : key)}
-                  className="w-full flex items-center gap-3 p-4 hover:bg-[#F5FAF5] transition-colors"
+                  className="w-full flex items-center gap-3 p-4 hover:bg-[#EEF3F8] transition-colors"
                 >
                   <span className="text-xl">{emoji}</span>
                   <div className="flex-1 text-left">
-                    <p style={{ fontSize: '15px', fontWeight: 600 }} className="text-[#222222]">{label}</p>
+                    <p style={{ fontSize: '15px', fontWeight: 600 }} className="text-[#17202E]">{label}</p>
                     <p style={{ fontSize: '12px' }} className="text-[#888]">{done}/{sectionTasks.length} completed</p>
                   </div>
                   <div className="flex items-center gap-2">
                     <div className="w-16 h-1.5 bg-gray-100 rounded-full overflow-hidden">
-                      <div className="h-full bg-[#C2DBC4] rounded-full" style={{ width: `${(done / sectionTasks.length) * 100}%` }} />
+                      <div className="h-full bg-[#14B8A6] rounded-full" style={{ width: `${(done / sectionTasks.length) * 100}%` }} />
                     </div>
                     {expandedSection === key ? <ChevronDown size={16} className="text-[#888]" /> : <ChevronRight size={16} className="text-[#888]" />}
                   </div>
@@ -210,15 +210,15 @@ export default function Routine() {
                     {sectionTasks.map(task => (
                       <div
                         key={task.id}
-                        className={`flex items-center gap-3 p-3 rounded-xl transition-all cursor-pointer hover:bg-[#F5FAF5] ${task.done ? 'opacity-60' : ''}`}
+                        className={`flex items-center gap-3 p-3 rounded-xl transition-all cursor-pointer hover:bg-[#EEF3F8] ${task.done ? 'opacity-60' : ''}`}
                         onClick={() => toggleTask(key, task.id)}
                       >
                         {task.done
-                          ? <CheckCircle2 size={20} className="text-[#7BAF80] fill-[#7BAF80] shrink-0" />
+                          ? <CheckCircle2 size={20} className="text-[#0F766E] fill-[#0F766E] shrink-0" />
                           : <Circle size={20} className="text-[#ccc] shrink-0" />
                         }
                         <div className="flex-1 min-w-0">
-                          <p style={{ fontSize: '13px', fontWeight: 500 }} className={`${task.done ? 'line-through text-[#aaa]' : 'text-[#222222]'}`}>
+                          <p style={{ fontSize: '13px', fontWeight: 500 }} className={`${task.done ? 'line-through text-[#aaa]' : 'text-[#17202E]'}`}>
                             {task.title}
                           </p>
                           <div className="flex items-center gap-2 mt-0.5">
@@ -253,10 +253,10 @@ export default function Routine() {
                           onChange={e => setNewTaskTitle(e.target.value)}
                           onKeyDown={e => { if (e.key === 'Enter') addTask(key); if (e.key === 'Escape') setShowAddTask(null); }}
                           placeholder="Add task..."
-                          className="flex-1 px-3 py-2 bg-[#F5FAF5] border border-[#C2DBC4]/30 rounded-xl text-[#222] placeholder:text-[#bbb] outline-none focus:border-[#C2DBC4]"
+                          className="flex-1 px-3 py-2 bg-[#EEF3F8] border border-[#14B8A6]/30 rounded-xl text-[#222] placeholder:text-[#bbb] outline-none focus:border-[#14B8A6]"
                           style={{ fontSize: '13px' }}
                         />
-                        <button onClick={() => addTask(key)} className="px-3 py-2 bg-[#222222] text-white rounded-xl hover:bg-[#333] transition-colors">
+                        <button onClick={() => addTask(key)} className="px-3 py-2 bg-[#17202E] text-white rounded-xl hover:bg-[#333] transition-colors">
                           <Plus size={15} />
                         </button>
                         <button onClick={() => setShowAddTask(null)} className="px-3 py-2 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors">
@@ -266,7 +266,7 @@ export default function Routine() {
                     ) : (
                       <button
                         onClick={() => setShowAddTask(key)}
-                        className="flex items-center gap-2 w-full px-3 py-2.5 mt-1 text-[#888] hover:text-[#222] hover:bg-[#F5FAF5] rounded-xl transition-all"
+                        className="flex items-center gap-2 w-full px-3 py-2.5 mt-1 text-[#888] hover:text-[#222] hover:bg-[#EEF3F8] rounded-xl transition-all"
                         style={{ fontSize: '13px' }}
                       >
                         <Plus size={15} /> Add task to {label.toLowerCase()}
@@ -284,14 +284,14 @@ export default function Routine() {
       {activeTab === 'habits' && (
         <div className="space-y-4">
           <div className="flex items-center justify-between">
-            <h3 style={{ fontSize: '15px', fontWeight: 700 }} className="text-[#222222]">Habit Tracker</h3>
-            <button className="flex items-center gap-1.5 px-3 py-2 bg-[#222222] text-white rounded-xl hover:bg-[#333] transition-colors" style={{ fontSize: '12px', fontWeight: 600 }}>
+            <h3 style={{ fontSize: '15px', fontWeight: 700 }} className="text-[#17202E]">Habit Tracker</h3>
+            <button className="flex items-center gap-1.5 px-3 py-2 bg-[#17202E] text-white rounded-xl hover:bg-[#333] transition-colors" style={{ fontSize: '12px', fontWeight: 600 }}>
               <Plus size={13} /> New Habit
             </button>
           </div>
 
           {/* Week header */}
-          <div className="bg-white rounded-2xl border border-[#C2DBC4]/20 p-4">
+          <div className="bg-white rounded-2xl border border-[#14B8A6]/20 p-4">
             <div className="flex items-center gap-2 mb-3">
               <Calendar size={15} className="text-[#888]" />
               <p style={{ fontSize: '13px', fontWeight: 600 }} className="text-[#666]">This Week (Mar 30 – Apr 5)</p>
@@ -299,19 +299,19 @@ export default function Routine() {
             <div className="flex gap-2">
               <div className="w-32 shrink-0" />
               {DAYS.map((d, i) => (
-                <div key={i} className={`flex-1 text-center py-1.5 rounded-lg ${i === 6 ? 'bg-[#222222]' : ''}`}>
-                  <p style={{ fontSize: '10px', fontWeight: 600 }} className={i === 6 ? 'text-[#C2DBC4]' : 'text-[#888]'}>{d}</p>
+                <div key={i} className={`flex-1 text-center py-1.5 rounded-lg ${i === 6 ? 'bg-[#17202E]' : ''}`}>
+                  <p style={{ fontSize: '10px', fontWeight: 600 }} className={i === 6 ? 'text-[#14B8A6]' : 'text-[#888]'}>{d}</p>
                 </div>
               ))}
             </div>
           </div>
 
           {habits.map(habit => (
-            <div key={habit.id} className="bg-white rounded-2xl border border-[#C2DBC4]/20 p-4">
+            <div key={habit.id} className="bg-white rounded-2xl border border-[#14B8A6]/20 p-4">
               <div className="flex items-center gap-3 mb-3">
                 <span className="text-2xl">{habit.emoji}</span>
                 <div className="flex-1">
-                  <p style={{ fontSize: '14px', fontWeight: 600 }} className="text-[#222222]">{habit.name}</p>
+                  <p style={{ fontSize: '14px', fontWeight: 600 }} className="text-[#17202E]">{habit.name}</p>
                   <div className="flex items-center gap-3">
                     <div className="flex items-center gap-1">
                       <Flame size={12} style={{ color: habit.color }} />
@@ -325,7 +325,7 @@ export default function Routine() {
                   className={`w-8 h-8 rounded-xl flex items-center justify-center transition-all ${
                     habit.completed[6]
                       ? 'text-white'
-                      : 'bg-gray-100 text-[#888] hover:bg-[#E8F3E9]'
+                      : 'bg-gray-100 text-[#888] hover:bg-[#E0F7F3]'
                   }`}
                   style={habit.completed[6] ? { backgroundColor: habit.color } : {}}
                 >
@@ -355,9 +355,9 @@ export default function Routine() {
           ))}
 
           {/* Achievement */}
-          <div className="bg-[#222222] rounded-2xl p-4 flex items-center gap-4">
-            <div className="w-12 h-12 rounded-xl bg-[#C2DBC4] flex items-center justify-center shrink-0">
-              <Trophy size={22} className="text-[#222222]" />
+          <div className="bg-[#17202E] rounded-2xl p-4 flex items-center gap-4">
+            <div className="w-12 h-12 rounded-xl bg-[#14B8A6] flex items-center justify-center shrink-0">
+              <Trophy size={22} className="text-[#17202E]" />
             </div>
             <div>
               <p style={{ fontSize: '13px', fontWeight: 600 }} className="text-white">15-Day Meditation Streak!</p>
@@ -372,32 +372,32 @@ export default function Routine() {
       {activeTab === 'focus' && (
         <div className="space-y-4">
           {/* Pomodoro Timer */}
-          <div className="bg-white rounded-2xl border border-[#C2DBC4]/20 p-6 text-center">
-            <h3 style={{ fontSize: '15px', fontWeight: 700 }} className="text-[#222222] mb-4">🍅 Pomodoro Focus Timer</h3>
+          <div className="bg-white rounded-2xl border border-[#14B8A6]/20 p-6 text-center">
+            <h3 style={{ fontSize: '15px', fontWeight: 700 }} className="text-[#17202E] mb-4">🍅 Pomodoro Focus Timer</h3>
             <div className="relative w-40 h-40 mx-auto mb-4">
               <svg width={160} height={160} style={{ transform: 'rotate(-90deg)' }}>
                 <circle cx={80} cy={80} r={68} fill="none" stroke="#f0f0f0" strokeWidth={10} />
-                <circle cx={80} cy={80} r={68} fill="none" stroke="#C2DBC4" strokeWidth={10}
+                <circle cx={80} cy={80} r={68} fill="none" stroke="#14B8A6" strokeWidth={10}
                   strokeDasharray={`${2 * Math.PI * 68}`}
                   strokeDashoffset={`${2 * Math.PI * 68 * 0.4}`}
                   strokeLinecap="round" />
               </svg>
               <div className="absolute inset-0 flex flex-col items-center justify-center">
-                <p style={{ fontSize: '36px', fontWeight: 700, fontVariantNumeric: 'tabular-nums' }} className="text-[#222222]">15:00</p>
+                <p style={{ fontSize: '36px', fontWeight: 700, fontVariantNumeric: 'tabular-nums' }} className="text-[#17202E]">15:00</p>
                 <p style={{ fontSize: '11px' }} className="text-[#888]">Focus Session</p>
               </div>
             </div>
             <div className="flex gap-3 justify-center">
-              <button className="flex items-center gap-2 px-6 py-2.5 bg-[#222222] text-white rounded-xl hover:bg-[#333] transition-colors" style={{ fontSize: '14px', fontWeight: 600 }}>
+              <button className="flex items-center gap-2 px-6 py-2.5 bg-[#17202E] text-white rounded-xl hover:bg-[#333] transition-colors" style={{ fontSize: '14px', fontWeight: 600 }}>
                 <Zap size={15} /> Start Focus
               </button>
-              <button className="px-4 py-2.5 bg-[#F5FAF5] border border-[#C2DBC4]/30 text-[#666] rounded-xl hover:bg-[#E8F3E9] transition-colors" style={{ fontSize: '14px' }}>
+              <button className="px-4 py-2.5 bg-[#EEF3F8] border border-[#14B8A6]/30 text-[#666] rounded-xl hover:bg-[#E0F7F3] transition-colors" style={{ fontSize: '14px' }}>
                 Reset
               </button>
             </div>
             <div className="flex justify-center gap-4 mt-4">
               {['25 min', '15 min', '5 min'].map(t => (
-                <button key={t} className="px-3 py-1 bg-[#F5FAF5] rounded-lg text-[#666] hover:bg-[#E8F3E9] transition-colors" style={{ fontSize: '12px' }}>{t}</button>
+                <button key={t} className="px-3 py-1 bg-[#EEF3F8] rounded-lg text-[#666] hover:bg-[#E0F7F3] transition-colors" style={{ fontSize: '12px' }}>{t}</button>
               ))}
             </div>
           </div>
@@ -405,23 +405,23 @@ export default function Routine() {
           {/* Focus Stats */}
           <div className="grid grid-cols-3 gap-3">
             {[
-              { label: 'Focus Sessions', value: '4', icon: Brain, color: '#C2DBC4' },
-              { label: 'Focus Time', value: '100 min', icon: Clock, color: '#7BA7DC' },
-              { label: 'Tasks Focused', value: '3', icon: Target, color: '#F4A261' },
+              { label: 'Focus Sessions', value: '4', icon: Brain, color: '#14B8A6' },
+              { label: 'Focus Time', value: '100 min', icon: Clock, color: '#2563EB' },
+              { label: 'Tasks Focused', value: '3', icon: Target, color: '#F97316' },
             ].map(s => (
-              <div key={s.label} className="bg-white rounded-2xl border border-[#C2DBC4]/20 p-4 text-center">
+              <div key={s.label} className="bg-white rounded-2xl border border-[#14B8A6]/20 p-4 text-center">
                 <div className="w-9 h-9 rounded-xl mx-auto mb-2 flex items-center justify-center" style={{ backgroundColor: s.color + '20' }}>
                   <s.icon size={16} style={{ color: s.color }} />
                 </div>
-                <p style={{ fontSize: '18px', fontWeight: 700 }} className="text-[#222222]">{s.value}</p>
+                <p style={{ fontSize: '18px', fontWeight: 700 }} className="text-[#17202E]">{s.value}</p>
                 <p style={{ fontSize: '10px' }} className="text-[#888]">{s.label}</p>
               </div>
             ))}
           </div>
 
           {/* Focus Music */}
-          <div className="bg-white rounded-2xl border border-[#C2DBC4]/20 p-5">
-            <h3 style={{ fontSize: '15px', fontWeight: 700 }} className="text-[#222222] mb-3">🎵 Focus Sounds</h3>
+          <div className="bg-white rounded-2xl border border-[#14B8A6]/20 p-5">
+            <h3 style={{ fontSize: '15px', fontWeight: 700 }} className="text-[#17202E] mb-3">🎵 Focus Sounds</h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
               {[
                 { name: 'Brown Noise', emoji: '🌊', active: true },
@@ -431,9 +431,9 @@ export default function Routine() {
                 { name: 'Lo-fi Beats', emoji: '🎸', active: false },
                 { name: 'Binaural Beats', emoji: '🧠', active: false },
               ].map(s => (
-                <button key={s.name} className={`p-3 rounded-xl border transition-all text-center ${s.active ? 'bg-[#E8F3E9] border-[#C2DBC4]' : 'bg-[#F5FAF5] border-[#C2DBC4]/20 hover:border-[#C2DBC4]'}`}>
+                <button key={s.name} className={`p-3 rounded-xl border transition-all text-center ${s.active ? 'bg-[#E0F7F3] border-[#14B8A6]' : 'bg-[#EEF3F8] border-[#14B8A6]/20 hover:border-[#14B8A6]'}`}>
                   <span className="text-xl block mb-1">{s.emoji}</span>
-                  <p style={{ fontSize: '11px', fontWeight: s.active ? 600 : 400 }} className={s.active ? 'text-[#5A9E60]' : 'text-[#666]'}>{s.name}</p>
+                  <p style={{ fontSize: '11px', fontWeight: s.active ? 600 : 400 }} className={s.active ? 'text-[#0F766E]' : 'text-[#666]'}>{s.name}</p>
                 </button>
               ))}
             </div>

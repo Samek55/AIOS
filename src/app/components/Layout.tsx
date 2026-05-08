@@ -32,7 +32,7 @@ export default function Layout() {
       : [];
 
   return (
-    <div className="flex h-screen bg-[#F5FAF5] overflow-hidden">
+    <div className="flex h-screen overflow-hidden bg-[#F6F8FB] text-[#17202E]">
       {/* Mobile overlay */}
       {sidebarOpen && (
         <div
@@ -44,19 +44,24 @@ export default function Layout() {
       {/* Sidebar */}
       <aside className={`
         fixed lg:relative inset-y-0 left-0 z-50 lg:z-auto
-        w-[260px] h-full bg-[#222222] flex flex-col shrink-0
+        w-[268px] h-full flex flex-col shrink-0
         transition-transform duration-300 ease-in-out
         ${sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
-      `}>
+      `}
+        style={{
+          background:
+            'linear-gradient(180deg, #17202E 0%, #101823 58%, #0B111A 100%)',
+        }}
+      >
         {/* Logo */}
         <div className="p-5 border-b border-white/10 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-[#C2DBC4] flex items-center justify-center shadow-lg">
-              <Sparkles size={18} className="text-[#222222]" />
+            <div className="w-9 h-9 rounded-xl bg-[#14B8A6] flex items-center justify-center shadow-lg shadow-[#14B8A6]/20">
+              <Sparkles size={18} className="text-white" />
             </div>
             <div>
               <h1 style={{fontSize:'17px', fontWeight:700, lineHeight:'1.2'}} className="text-white">AIOS</h1>
-              <p style={{fontSize:'10px'}} className="text-white/40 tracking-wide uppercase">Life OS</p>
+              <p style={{fontSize:'10px'}} className="text-[#8AA4B8] tracking-wide uppercase">Life OS</p>
             </div>
           </div>
           <button
@@ -69,7 +74,7 @@ export default function Layout() {
 
         {/* Navigation */}
         <nav className="flex-1 p-3 space-y-0.5 overflow-y-auto">
-          <p style={{fontSize:'10px'}} className="text-white/30 uppercase tracking-widest px-3 py-2">Main Menu</p>
+          <p style={{fontSize:'10px'}} className="text-[#6D8196] uppercase tracking-widest px-3 py-2">Main Menu</p>
           {navItems.slice(0, 5).map((item) => (
             <NavLink
               key={item.path}
@@ -79,22 +84,22 @@ export default function Layout() {
               className={({ isActive }) =>
                 `flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-200 group ${
                   isActive
-                    ? 'bg-[#C2DBC4] text-[#222222]'
-                    : 'text-white/60 hover:bg-white/5 hover:text-white'
+                    ? 'bg-[#14B8A6] text-white shadow-lg shadow-[#14B8A6]/20'
+                    : 'text-[#A7B5C6] hover:bg-white/10 hover:text-white'
                 }`
               }
             >
               {({ isActive }) => (
                 <>
-                  <item.icon size={18} className={isActive ? 'text-[#222222]' : 'text-white/60 group-hover:text-white'} />
+                  <item.icon size={18} className={isActive ? 'text-white' : 'text-[#A7B5C6] group-hover:text-white'} />
                   <span style={{fontSize:'14px', fontWeight: isActive ? 600 : 400}}>{item.label}</span>
-                  {isActive && <ChevronRight size={14} className="ml-auto text-[#222222]/60" />}
+                  {isActive && <ChevronRight size={14} className="ml-auto text-white/70" />}
                 </>
               )}
             </NavLink>
           ))}
 
-          <p style={{fontSize:'10px'}} className="text-white/30 uppercase tracking-widest px-3 py-2 pt-4">Community</p>
+          <p style={{fontSize:'10px'}} className="text-[#6D8196] uppercase tracking-widest px-3 py-2 pt-4">Community</p>
           {navItems.slice(5).map((item) => (
             <NavLink
               key={item.path}
@@ -103,16 +108,16 @@ export default function Layout() {
               className={({ isActive }) =>
                 `flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-200 group ${
                   isActive
-                    ? 'bg-[#C2DBC4] text-[#222222]'
-                    : 'text-white/60 hover:bg-white/5 hover:text-white'
+                    ? 'bg-[#14B8A6] text-white shadow-lg shadow-[#14B8A6]/20'
+                    : 'text-[#A7B5C6] hover:bg-white/10 hover:text-white'
                 }`
               }
             >
               {({ isActive }) => (
                 <>
-                  <item.icon size={18} className={isActive ? 'text-[#222222]' : 'text-white/60 group-hover:text-white'} />
+                  <item.icon size={18} className={isActive ? 'text-white' : 'text-[#A7B5C6] group-hover:text-white'} />
                   <span style={{fontSize:'14px', fontWeight: isActive ? 600 : 400}}>{item.label}</span>
-                  {isActive && <ChevronRight size={14} className="ml-auto text-[#222222]/60" />}
+                  {isActive && <ChevronRight size={14} className="ml-auto text-white/70" />}
                 </>
               )}
             </NavLink>
@@ -120,7 +125,7 @@ export default function Layout() {
 
           {roleItems.length > 0 ? (
             <>
-              <p style={{fontSize:'10px'}} className="text-white/30 uppercase tracking-widest px-3 py-2 pt-4">Workspace</p>
+              <p style={{fontSize:'10px'}} className="text-[#6D8196] uppercase tracking-widest px-3 py-2 pt-4">Workspace</p>
               {roleItems.map((item) => (
                 <NavLink
                   key={item.path}
@@ -129,16 +134,16 @@ export default function Layout() {
                   className={({ isActive }) =>
                     `flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-200 group ${
                       isActive
-                        ? 'bg-[#C2DBC4] text-[#222222]'
-                        : 'text-white/60 hover:bg-white/5 hover:text-white'
+                        ? 'bg-[#14B8A6] text-white shadow-lg shadow-[#14B8A6]/20'
+                        : 'text-[#A7B5C6] hover:bg-white/10 hover:text-white'
                     }`
                   }
                 >
                   {({ isActive }) => (
                     <>
-                      <item.icon size={18} className={isActive ? 'text-[#222222]' : 'text-white/60 group-hover:text-white'} />
+                      <item.icon size={18} className={isActive ? 'text-white' : 'text-[#A7B5C6] group-hover:text-white'} />
                       <span style={{fontSize:'14px', fontWeight: isActive ? 600 : 400}}>{item.label}</span>
-                      {isActive && <ChevronRight size={14} className="ml-auto text-[#222222]/60" />}
+                      {isActive && <ChevronRight size={14} className="ml-auto text-white/70" />}
                     </>
                   )}
                 </NavLink>
@@ -150,7 +155,7 @@ export default function Layout() {
             <NavLink
               to="/profile"
               onClick={() => setSidebarOpen(false)}
-              className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-white/60 hover:bg-white/5 hover:text-white transition-all"
+              className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-[#A7B5C6] hover:bg-white/10 hover:text-white transition-all"
             >
               <Settings size={18} />
               <span style={{fontSize:'14px'}}>Settings</span>
@@ -162,14 +167,14 @@ export default function Layout() {
         <div className="px-3 py-3">
           <button
             onClick={() => { navigate('/ai-assistant'); setSidebarOpen(false); }}
-            className="w-full flex items-center gap-3 px-4 py-3 rounded-xl bg-[#C2DBC4]/10 border border-[#C2DBC4]/20 hover:bg-[#C2DBC4]/20 transition-all group"
+            className="w-full flex items-center gap-3 px-4 py-3 rounded-xl bg-white/5 border border-white/10 hover:border-[#14B8A6]/50 hover:bg-[#14B8A6]/10 transition-all group"
           >
-            <div className="w-7 h-7 rounded-lg bg-[#C2DBC4] flex items-center justify-center">
-              <Zap size={14} className="text-[#222222]" />
+            <div className="w-7 h-7 rounded-lg bg-[#F97316] flex items-center justify-center">
+              <Zap size={14} className="text-white" />
             </div>
             <div className="text-left flex-1 min-w-0">
               <p style={{fontSize:'12px', fontWeight:600}} className="text-white truncate">Ask AIOS anything</p>
-              <p style={{fontSize:'10px'}} className="text-white/40 truncate">Your AI life assistant</p>
+              <p style={{fontSize:'10px'}} className="text-[#8AA4B8] truncate">Your AI life assistant</p>
             </div>
           </button>
         </div>
@@ -180,11 +185,11 @@ export default function Layout() {
             <ImageWithFallback
               src={profile.avatarUrl}
               alt={profile.name}
-              className="w-9 h-9 rounded-full object-cover border-2 border-[#C2DBC4]/40"
+              className="w-9 h-9 rounded-full object-cover border-2 border-[#14B8A6]/50"
             />
             <div className="flex-1 min-w-0">
               <p style={{fontSize:'13px', fontWeight:600}} className="text-white truncate">{profile.name}</p>
-              <p style={{fontSize:'11px'}} className="text-[#C2DBC4]/70 truncate">{user?.role === 'admin' ? 'Platform Admin' : user?.role === 'vendor' ? 'Vendor Partner' : profile.membership}</p>
+              <p style={{fontSize:'11px'}} className="text-[#14B8A6]/80 truncate">{user?.role === 'admin' ? 'Platform Admin' : user?.role === 'vendor' ? 'Vendor Partner' : profile.membership}</p>
             </div>
             <button
               onClick={() => {
@@ -202,10 +207,10 @@ export default function Layout() {
       {/* Main content */}
       <div className="flex-1 flex flex-col overflow-hidden min-w-0">
         {/* Top header */}
-        <header className="bg-white border-b border-[#C2DBC4]/30 px-4 lg:px-6 py-3 flex items-center gap-4 shrink-0">
+        <header className="bg-white/90 backdrop-blur border-b border-[#D8E1EA] px-4 lg:px-6 py-3 flex items-center gap-4 shrink-0">
           <button
             onClick={() => setSidebarOpen(true)}
-            className="lg:hidden p-2 rounded-xl hover:bg-[#E8F3E9] text-[#222222] transition-colors"
+            className="lg:hidden p-2 rounded-xl hover:bg-[#E7EEF7] text-[#17202E] transition-colors"
           >
             <Menu size={20} />
           </button>
@@ -213,11 +218,11 @@ export default function Layout() {
           {/* Search bar */}
           <div className="flex-1 max-w-md">
             <div className="relative">
-              <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-[#888]" />
+              <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-[#6D8196]" />
               <input
                 type="text"
                 placeholder="Search food, products, workouts..."
-                className="w-full pl-9 pr-4 py-2 rounded-xl bg-[#F5FAF5] border border-[#C2DBC4]/30 text-[#222] placeholder:text-[#aaa] outline-none focus:border-[#C2DBC4] transition-colors"
+                className="w-full pl-9 pr-4 py-2 rounded-xl bg-[#EEF3F8] border border-[#D8E1EA] text-[#17202E] placeholder:text-[#8AA4B8] outline-none focus:border-[#14B8A6] focus:bg-white transition-colors"
                 style={{fontSize:'13px'}}
               />
             </div>
@@ -225,11 +230,11 @@ export default function Layout() {
 
           <div className="flex items-center gap-2 ml-auto">
             {/* Notification */}
-            <button className="relative p-2 rounded-xl hover:bg-[#E8F3E9] transition-colors">
-              <Bell size={19} className="text-[#444]" />
+            <button className="relative p-2 rounded-xl hover:bg-[#E7EEF7] transition-colors">
+              <Bell size={19} className="text-[#44546A]" />
               {unreadNotifications > 0 && (
-                <span className="absolute top-1 right-1 w-4 h-4 bg-[#222222] rounded-full flex items-center justify-center">
-                  <span style={{fontSize:'9px', fontWeight:700}} className="text-[#C2DBC4]">{unreadNotifications}</span>
+                <span className="absolute top-1 right-1 w-4 h-4 bg-[#F97316] rounded-full flex items-center justify-center">
+                  <span style={{fontSize:'9px', fontWeight:700}} className="text-white">{unreadNotifications}</span>
                 </span>
               )}
             </button>
@@ -242,7 +247,7 @@ export default function Layout() {
               <ImageWithFallback
                 src={profile.avatarUrl}
                 alt={profile.name}
-                className="w-9 h-9 rounded-full object-cover border-2 border-[#C2DBC4]"
+                className="w-9 h-9 rounded-full object-cover border-2 border-[#14B8A6]"
               />
             </button>
           </div>
