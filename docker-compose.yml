@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: aios-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: aios
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - aios-postgres-data:/var/lib/postgresql/data
+
+volumes:
+  aios-postgres-data:

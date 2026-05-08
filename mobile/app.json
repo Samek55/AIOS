@@ -1,0 +1,15 @@
+{
+  "expo": {
+    "name": "AIOS Mobile",
+    "slug": "aios-mobile",
+    "version": "0.0.1",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "backgroundColor": "#F5FAF5"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
