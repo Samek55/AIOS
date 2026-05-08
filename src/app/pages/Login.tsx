@@ -80,12 +80,12 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F5FAF5] px-4 py-6 lg:px-8">
+    <div className="min-h-screen bg-[#EEF3F8] px-4 py-6 lg:px-8">
       <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-[1.1fr,0.9fr]">
-        <div className="rounded-[32px] bg-[#222222] p-6 text-white lg:p-10">
+        <div className="rounded-[32px] bg-[#17202E] p-6 text-white lg:p-10">
           <div className="mb-10 flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#C2DBC4]">
-              <Bot size={20} className="text-[#222222]" />
+            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#14B8A6]">
+              <Bot size={20} className="text-[#17202E]" />
             </div>
             <div>
               <h1 style={{ fontSize: '22px', fontWeight: 700 }}>AIOS</h1>
@@ -97,7 +97,7 @@ export default function Login() {
 
           <p
             style={{ fontSize: '11px', fontWeight: 700 }}
-            className="mb-2 uppercase tracking-[0.25em] text-[#C2DBC4]"
+            className="mb-2 uppercase tracking-[0.25em] text-[#14B8A6]"
           >
             Production-style prototype
           </p>
@@ -114,9 +114,9 @@ export default function Login() {
               <button
                 key={account.label}
                 onClick={() => void loginWithDemo(account)}
-                className="rounded-2xl border border-white/10 bg-white/5 p-4 text-left transition-all hover:border-[#C2DBC4]/40 hover:bg-white/10"
+                className="rounded-2xl border border-white/10 bg-white/5 p-4 text-left transition-all hover:border-[#14B8A6]/40 hover:bg-white/10"
               >
-                <account.icon size={18} className="text-[#C2DBC4]" />
+                <account.icon size={18} className="text-[#14B8A6]" />
                 <p style={{ fontSize: '13px', fontWeight: 700 }} className="mt-3">
                   {account.label}
                 </p>
@@ -128,16 +128,16 @@ export default function Login() {
           </div>
         </div>
 
-        <div className="rounded-[32px] border border-[#C2DBC4]/30 bg-white p-6 shadow-sm lg:p-8">
-          <div className="flex gap-2 rounded-2xl bg-[#F5FAF5] p-1">
+        <div className="rounded-[32px] border border-[#14B8A6]/30 bg-white p-6 shadow-sm lg:p-8">
+          <div className="flex gap-2 rounded-2xl bg-[#EEF3F8] p-1">
             {(['login', 'register'] as const).map((tab) => (
               <button
                 key={tab}
                 onClick={() => setMode(tab)}
                 className={`flex-1 rounded-xl px-4 py-2.5 transition-all ${
                   mode === tab
-                    ? 'bg-[#222222] text-white'
-                    : 'text-[#666] hover:text-[#222222]'
+                    ? 'bg-[#17202E] text-white'
+                    : 'text-[#666] hover:text-[#17202E]'
                 }`}
                 style={{ fontSize: '13px', fontWeight: 700 }}
               >
@@ -156,7 +156,7 @@ export default function Login() {
                   value={name}
                   onChange={(event) => setName(event.target.value)}
                   placeholder="Your name"
-                  className="mt-2 w-full rounded-2xl border border-[#C2DBC4]/30 bg-[#F5FAF5] px-4 py-3 outline-none transition-colors focus:border-[#C2DBC4]"
+                  className="mt-2 w-full rounded-2xl border border-[#14B8A6]/30 bg-[#EEF3F8] px-4 py-3 outline-none transition-colors focus:border-[#14B8A6]"
                 />
               </div>
             ) : null}
@@ -169,7 +169,7 @@ export default function Login() {
                 value={email}
                 onChange={(event) => setEmail(event.target.value)}
                 placeholder="you@example.com"
-                className="mt-2 w-full rounded-2xl border border-[#C2DBC4]/30 bg-[#F5FAF5] px-4 py-3 outline-none transition-colors focus:border-[#C2DBC4]"
+                className="mt-2 w-full rounded-2xl border border-[#14B8A6]/30 bg-[#EEF3F8] px-4 py-3 outline-none transition-colors focus:border-[#14B8A6]"
               />
             </div>
 
@@ -182,7 +182,7 @@ export default function Login() {
                 value={password}
                 onChange={(event) => setPassword(event.target.value)}
                 placeholder="Minimum 6 characters"
-                className="mt-2 w-full rounded-2xl border border-[#C2DBC4]/30 bg-[#F5FAF5] px-4 py-3 outline-none transition-colors focus:border-[#C2DBC4]"
+                className="mt-2 w-full rounded-2xl border border-[#14B8A6]/30 bg-[#EEF3F8] px-4 py-3 outline-none transition-colors focus:border-[#14B8A6]"
               />
             </div>
 
@@ -195,7 +195,7 @@ export default function Login() {
                   <input
                     value={city}
                     onChange={(event) => setCity(event.target.value)}
-                    className="mt-2 w-full rounded-2xl border border-[#C2DBC4]/30 bg-[#F5FAF5] px-4 py-3 outline-none transition-colors focus:border-[#C2DBC4]"
+                    className="mt-2 w-full rounded-2xl border border-[#14B8A6]/30 bg-[#EEF3F8] px-4 py-3 outline-none transition-colors focus:border-[#14B8A6]"
                   />
                 </div>
                 <div>
@@ -205,7 +205,7 @@ export default function Login() {
                   <input
                     value={state}
                     onChange={(event) => setState(event.target.value)}
-                    className="mt-2 w-full rounded-2xl border border-[#C2DBC4]/30 bg-[#F5FAF5] px-4 py-3 outline-none transition-colors focus:border-[#C2DBC4]"
+                    className="mt-2 w-full rounded-2xl border border-[#14B8A6]/30 bg-[#EEF3F8] px-4 py-3 outline-none transition-colors focus:border-[#14B8A6]"
                   />
                 </div>
                 <div className="sm:col-span-2">
@@ -215,7 +215,7 @@ export default function Login() {
                   <input
                     value={street}
                     onChange={(event) => setStreet(event.target.value)}
-                    className="mt-2 w-full rounded-2xl border border-[#C2DBC4]/30 bg-[#F5FAF5] px-4 py-3 outline-none transition-colors focus:border-[#C2DBC4]"
+                    className="mt-2 w-full rounded-2xl border border-[#14B8A6]/30 bg-[#EEF3F8] px-4 py-3 outline-none transition-colors focus:border-[#14B8A6]"
                   />
                 </div>
               </div>
@@ -230,7 +230,7 @@ export default function Login() {
             <button
               onClick={() => void handleSubmit()}
               disabled={busy}
-              className="flex w-full items-center justify-center gap-2 rounded-2xl bg-[#222222] px-4 py-3 text-white transition-colors hover:bg-[#333333] disabled:cursor-not-allowed disabled:opacity-70"
+              className="flex w-full items-center justify-center gap-2 rounded-2xl bg-[#17202E] px-4 py-3 text-white transition-colors hover:bg-[#243244] disabled:cursor-not-allowed disabled:opacity-70"
               style={{ fontSize: '14px', fontWeight: 700 }}
             >
               {busy ? 'Please wait...' : mode === 'login' ? 'Login to AIOS' : 'Create AIOS account'}

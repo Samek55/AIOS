@@ -16,10 +16,10 @@ const GROCERIES_IMG = 'https://images.unsplash.com/photo-1610636996379-4d184e2ef
 const DESSERT_IMG = 'https://images.unsplash.com/photo-1759426016293-1b8be5849a72?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=400';
 
 const categories = [
-  { id: 'food', label: '🍔 Food', color: '#F4A261' },
+  { id: 'food', label: '🍔 Food', color: '#F97316' },
   { id: 'fashion', label: '👗 Fashion', color: '#C77DFF' },
-  { id: 'groceries', label: '🛒 Groceries', color: '#7BAF80' },
-  { id: 'pharmacy', label: '💊 Pharmacy', color: '#7BA7DC' },
+  { id: 'groceries', label: '🛒 Groceries', color: '#0F766E' },
+  { id: 'pharmacy', label: '💊 Pharmacy', color: '#2563EB' },
   { id: 'electronics', label: '📱 Electronics', color: '#F4C430' },
 ];
 
@@ -132,20 +132,20 @@ export default function Marketplace() {
     <div className="p-4 lg:p-6 max-w-7xl mx-auto">
       {/* Order Placed Success */}
       {orderPlaced && (
-        <div className="fixed top-4 right-4 z-50 bg-[#222222] text-white px-5 py-4 rounded-2xl shadow-2xl flex items-center gap-3 border border-[#C2DBC4]/30">
-          <CheckCircle size={20} className="text-[#C2DBC4]" />
+        <div className="fixed top-4 right-4 z-50 bg-[#17202E] text-white px-5 py-4 rounded-2xl shadow-2xl flex items-center gap-3 border border-[#14B8A6]/30">
+          <CheckCircle size={20} className="text-[#14B8A6]" />
           <div>
             <p style={{fontSize:'14px', fontWeight:600}}>Order Placed! 🎉</p>
-            <p style={{fontSize:'12px', color:'#C2DBC4'}}>Estimated delivery: 25-30 min</p>
+            <p style={{fontSize:'12px', color:'#14B8A6'}}>Estimated delivery: 25-30 min</p>
           </div>
         </div>
       )}
 
       {/* Header */}
       <div className="mb-5">
-        <h1 style={{fontSize:'24px', fontWeight:700}} className="text-[#222222] mb-1">Marketplace</h1>
+        <h1 style={{fontSize:'24px', fontWeight:700}} className="text-[#17202E] mb-1">Marketplace</h1>
         <div className="flex items-center gap-2">
-          <MapPin size={13} className="text-[#C2DBC4]" />
+          <MapPin size={13} className="text-[#14B8A6]" />
           <span style={{fontSize:'13px'}} className="text-[#888]">Delivering to: 123 Main St, New York, NY</span>
         </div>
       </div>
@@ -158,20 +158,20 @@ export default function Marketplace() {
             value={searchQuery}
             onChange={e => setSearchQuery(e.target.value)}
             placeholder={`Search ${activeCategory === 'food' ? 'restaurants, dishes' : activeCategory === 'fashion' ? 'clothes, brands' : 'products'}...`}
-            className="w-full pl-9 pr-4 py-2.5 bg-white rounded-xl border border-[#C2DBC4]/30 text-[#222] placeholder:text-[#bbb] outline-none focus:border-[#C2DBC4] transition-colors"
+            className="w-full pl-9 pr-4 py-2.5 bg-white rounded-xl border border-[#14B8A6]/30 text-[#222] placeholder:text-[#bbb] outline-none focus:border-[#14B8A6] transition-colors"
             style={{fontSize:'14px'}}
           />
         </div>
-        <button className="p-2.5 bg-white rounded-xl border border-[#C2DBC4]/30 hover:bg-[#E8F3E9] transition-colors">
+        <button className="p-2.5 bg-white rounded-xl border border-[#14B8A6]/30 hover:bg-[#E0F7F3] transition-colors">
           <Filter size={18} className="text-[#666]" />
         </button>
         <button
           onClick={() => setCartOpen(true)}
-          className="relative p-2.5 bg-[#222222] rounded-xl text-white hover:bg-[#333] transition-colors"
+          className="relative p-2.5 bg-[#17202E] rounded-xl text-white hover:bg-[#333] transition-colors"
         >
           <ShoppingCart size={18} />
           {cartCount > 0 && (
-            <span className="absolute -top-1.5 -right-1.5 w-5 h-5 bg-[#C2DBC4] text-[#222] rounded-full flex items-center justify-center" style={{fontSize:'10px', fontWeight:700}}>
+            <span className="absolute -top-1.5 -right-1.5 w-5 h-5 bg-[#14B8A6] text-[#222] rounded-full flex items-center justify-center" style={{fontSize:'10px', fontWeight:700}}>
               {cartCount}
             </span>
           )}
@@ -186,8 +186,8 @@ export default function Marketplace() {
             onClick={() => { setActiveCategory(cat.id); setSelectedRestaurant(null); }}
             className={`flex items-center gap-2 px-4 py-2 rounded-xl whitespace-nowrap transition-all border ${
               activeCategory === cat.id
-                ? 'bg-[#222222] text-white border-[#222222]'
-                : 'bg-white text-[#666] border-[#C2DBC4]/30 hover:border-[#C2DBC4]'
+                ? 'bg-[#17202E] text-white border-[#17202E]'
+                : 'bg-white text-[#666] border-[#14B8A6]/30 hover:border-[#14B8A6]'
             }`}
             style={{fontSize:'13px', fontWeight: activeCategory === cat.id ? 600 : 400}}
           >
@@ -200,36 +200,36 @@ export default function Marketplace() {
       {activeCategory === 'food' && !selectedRestaurant && (
         <div>
           {/* Featured promo */}
-          <div className="relative rounded-2xl overflow-hidden mb-5 h-32 bg-[#222222] flex items-center px-6">
+          <div className="relative rounded-2xl overflow-hidden mb-5 h-32 bg-[#17202E] flex items-center px-6">
             <ImageWithFallback src={DESSERT_IMG} alt="Promo" className="absolute inset-0 w-full h-full object-cover opacity-20" />
             <div className="relative z-10">
-              <p style={{fontSize:'11px', fontWeight:600}} className="text-[#C2DBC4] uppercase tracking-widest mb-1">Limited Time</p>
+              <p style={{fontSize:'11px', fontWeight:600}} className="text-[#14B8A6] uppercase tracking-widest mb-1">Limited Time</p>
               <h3 style={{fontSize:'20px', fontWeight:700}} className="text-white">Free Delivery All Day</h3>
-              <p style={{fontSize:'13px'}} className="text-white/60">On orders above $20 · Use code: <span className="text-[#C2DBC4] font-semibold">FREEAIOS</span></p>
+              <p style={{fontSize:'13px'}} className="text-white/60">On orders above $20 · Use code: <span className="text-[#14B8A6] font-semibold">FREEAIOS</span></p>
             </div>
           </div>
 
           {/* Cuisine filters */}
           <div className="flex gap-2 overflow-x-auto mb-4 scrollbar-hide">
             {['All', '🍔 Burgers', '🍕 Pizza', '🍣 Sushi', '🥗 Healthy', '🍜 Noodles', '🌮 Mexican'].map(c => (
-              <button key={c} className="px-3 py-1.5 bg-white border border-[#C2DBC4]/30 rounded-full text-[#666] hover:bg-[#E8F3E9] hover:border-[#C2DBC4] transition-all whitespace-nowrap" style={{fontSize:'12px'}}>
+              <button key={c} className="px-3 py-1.5 bg-white border border-[#14B8A6]/30 rounded-full text-[#666] hover:bg-[#E0F7F3] hover:border-[#14B8A6] transition-all whitespace-nowrap" style={{fontSize:'12px'}}>
                 {c}
               </button>
             ))}
           </div>
 
-          <h3 style={{fontSize:'15px', fontWeight:700}} className="text-[#222222] mb-3">Restaurants Near You</h3>
+          <h3 style={{fontSize:'15px', fontWeight:700}} className="text-[#17202E] mb-3">Restaurants Near You</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {restaurants.map(r => (
               <div
                 key={r.id}
                 onClick={() => setSelectedRestaurant(r.id)}
-                className="bg-white rounded-2xl border border-[#C2DBC4]/20 overflow-hidden hover:shadow-md hover:border-[#C2DBC4] transition-all cursor-pointer group"
+                className="bg-white rounded-2xl border border-[#14B8A6]/20 overflow-hidden hover:shadow-md hover:border-[#14B8A6] transition-all cursor-pointer group"
               >
                 <div className="relative h-40">
                   <ImageWithFallback src={r.img} alt={r.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                   {r.promo && (
-                    <span className="absolute top-3 left-3 px-2.5 py-1 bg-[#222222] text-[#C2DBC4] rounded-lg" style={{fontSize:'11px', fontWeight:700}}>
+                    <span className="absolute top-3 left-3 px-2.5 py-1 bg-[#17202E] text-[#14B8A6] rounded-lg" style={{fontSize:'11px', fontWeight:700}}>
                       {r.promo}
                     </span>
                   )}
@@ -239,7 +239,7 @@ export default function Marketplace() {
                 </div>
                 <div className="p-4">
                   <div className="flex items-center justify-between mb-1">
-                    <h4 style={{fontSize:'15px', fontWeight:700}} className="text-[#222222]">{r.name}</h4>
+                    <h4 style={{fontSize:'15px', fontWeight:700}} className="text-[#17202E]">{r.name}</h4>
                     <div className="flex items-center gap-1">
                       <Star size={12} className="text-yellow-400 fill-yellow-400" />
                       <span style={{fontSize:'13px', fontWeight:600}} className="text-[#333]">{r.rating}</span>
@@ -275,7 +275,7 @@ export default function Marketplace() {
           </button>
 
           {/* Restaurant header */}
-          <div className="relative rounded-2xl overflow-hidden h-44 mb-4 bg-[#222222]">
+          <div className="relative rounded-2xl overflow-hidden h-44 mb-4 bg-[#17202E]">
             <ImageWithFallback src={restaurant.img} alt={restaurant.name} className="w-full h-full object-cover opacity-40" />
             <div className="absolute inset-0 p-5 flex flex-col justify-end">
               <h2 style={{fontSize:'22px', fontWeight:700}} className="text-white">{restaurant.name}</h2>
@@ -296,34 +296,34 @@ export default function Marketplace() {
             </div>
           </div>
 
-          <h3 style={{fontSize:'16px', fontWeight:700}} className="text-[#222222] mb-3">Menu</h3>
+          <h3 style={{fontSize:'16px', fontWeight:700}} className="text-[#17202E] mb-3">Menu</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {foodMenus[selectedRestaurant]?.map((item) => {
               const cartItem = cart.find(c => c.name === item.name);
               return (
-                <div key={item.name} className="flex items-center gap-3 p-3 bg-white rounded-2xl border border-[#C2DBC4]/20 hover:border-[#C2DBC4] transition-all">
+                <div key={item.name} className="flex items-center gap-3 p-3 bg-white rounded-2xl border border-[#14B8A6]/20 hover:border-[#14B8A6] transition-all">
                   <span className="text-3xl shrink-0">{item.emoji}</span>
                   <div className="flex-1 min-w-0">
-                    <p style={{fontSize:'14px', fontWeight:600}} className="text-[#222222]">{item.name}</p>
+                    <p style={{fontSize:'14px', fontWeight:600}} className="text-[#17202E]">{item.name}</p>
                     <p style={{fontSize:'11px'}} className="text-[#888] truncate">{item.desc}</p>
-                    <p style={{fontSize:'14px', fontWeight:700}} className="text-[#222222] mt-1">${item.price.toFixed(2)}</p>
+                    <p style={{fontSize:'14px', fontWeight:700}} className="text-[#17202E] mt-1">${item.price.toFixed(2)}</p>
                   </div>
                   {cartItem ? (
                     <div className="flex items-center gap-2 shrink-0">
-                      <button onClick={() => removeFromCart(item.name)} className="w-7 h-7 rounded-lg bg-[#222222] flex items-center justify-center text-white">
+                      <button onClick={() => removeFromCart(item.name)} className="w-7 h-7 rounded-lg bg-[#17202E] flex items-center justify-center text-white">
                         <Minus size={13} />
                       </button>
                       <span style={{fontSize:'14px', fontWeight:600}} className="text-[#222] w-4 text-center">{cartItem.qty}</span>
-                      <button onClick={() => addToCart(item)} className="w-7 h-7 rounded-lg bg-[#222222] flex items-center justify-center text-white">
+                      <button onClick={() => addToCart(item)} className="w-7 h-7 rounded-lg bg-[#17202E] flex items-center justify-center text-white">
                         <Plus size={13} />
                       </button>
                     </div>
                   ) : (
                     <button
                       onClick={() => addToCart(item)}
-                      className="w-7 h-7 rounded-lg bg-[#C2DBC4] hover:bg-[#A8C9AB] flex items-center justify-center transition-colors shrink-0"
+                      className="w-7 h-7 rounded-lg bg-[#14B8A6] hover:bg-[#0F766E] flex items-center justify-center transition-colors shrink-0"
                     >
-                      <Plus size={13} className="text-[#222222]" />
+                      <Plus size={13} className="text-[#17202E]" />
                     </button>
                   )}
                 </div>
@@ -337,10 +337,10 @@ export default function Marketplace() {
       {activeCategory === 'fashion' && (
         <div>
           <div className="flex items-center justify-between mb-4">
-            <h3 style={{fontSize:'15px', fontWeight:700}} className="text-[#222222]">Trending Fashion</h3>
+            <h3 style={{fontSize:'15px', fontWeight:700}} className="text-[#17202E]">Trending Fashion</h3>
             <div className="flex gap-2">
               {['All', 'Men', 'Women', 'Kids'].map(f => (
-                <button key={f} className="px-3 py-1 bg-white border border-[#C2DBC4]/30 rounded-lg text-[#666] hover:bg-[#E8F3E9] transition-all" style={{fontSize:'12px'}}>
+                <button key={f} className="px-3 py-1 bg-white border border-[#14B8A6]/30 rounded-lg text-[#666] hover:bg-[#E0F7F3] transition-all" style={{fontSize:'12px'}}>
                   {f}
                 </button>
               ))}
@@ -348,7 +348,7 @@ export default function Marketplace() {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {fashionItems.map(item => (
-              <div key={item.id} className="bg-white rounded-2xl border border-[#C2DBC4]/20 overflow-hidden hover:shadow-md hover:border-[#C2DBC4] transition-all group">
+              <div key={item.id} className="bg-white rounded-2xl border border-[#14B8A6]/20 overflow-hidden hover:shadow-md hover:border-[#14B8A6] transition-all group">
                 <div className="relative h-48">
                   <ImageWithFallback src={item.img} alt={item.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                   <button
@@ -357,18 +357,18 @@ export default function Marketplace() {
                   >
                     <Heart size={15} className={wishlist.includes(item.id) ? 'text-red-500 fill-red-500' : 'text-[#888]'} />
                   </button>
-                  <span className={`absolute top-3 left-3 px-2 py-1 rounded-lg text-white`} style={{fontSize:'10px', fontWeight:700, backgroundColor: item.tag.includes('Sale') ? '#E63946' : item.tag === 'New' ? '#7BAF80' : '#222222'}}>
+                  <span className={`absolute top-3 left-3 px-2 py-1 rounded-lg text-white`} style={{fontSize:'10px', fontWeight:700, backgroundColor: item.tag.includes('Sale') ? '#E63946' : item.tag === 'New' ? '#0F766E' : '#17202E'}}>
                     {item.tag}
                   </span>
                 </div>
                 <div className="p-3">
-                  <p style={{fontSize:'13px', fontWeight:600}} className="text-[#222222]">{item.name}</p>
+                  <p style={{fontSize:'13px', fontWeight:600}} className="text-[#17202E]">{item.name}</p>
                   <p style={{fontSize:'11px'}} className="text-[#888]">{item.brand}</p>
                   <div className="flex items-center justify-between mt-2">
-                    <p style={{fontSize:'15px', fontWeight:700}} className="text-[#222222]">${item.price}</p>
+                    <p style={{fontSize:'15px', fontWeight:700}} className="text-[#17202E]">${item.price}</p>
                     <button
                       onClick={() => addToCart({ name: item.name, price: item.price })}
-                      className="px-3 py-1.5 bg-[#222222] text-white rounded-lg hover:bg-[#C2DBC4] hover:text-[#222] transition-all"
+                      className="px-3 py-1.5 bg-[#17202E] text-white rounded-lg hover:bg-[#14B8A6] hover:text-[#222] transition-all"
                       style={{fontSize:'11px', fontWeight:600}}
                     >
                       Add to Cart
@@ -384,11 +384,11 @@ export default function Marketplace() {
       {/* GROCERIES TAB */}
       {activeCategory === 'groceries' && (
         <div>
-          <div className="relative rounded-2xl overflow-hidden h-28 mb-5 bg-[#E8F3E9] flex items-center px-6 border border-[#C2DBC4]/30">
+          <div className="relative rounded-2xl overflow-hidden h-28 mb-5 bg-[#E0F7F3] flex items-center px-6 border border-[#14B8A6]/30">
             <ImageWithFallback src={GROCERIES_IMG} alt="Groceries" className="absolute inset-0 w-full h-full object-cover opacity-15" />
             <div className="relative z-10">
-              <p style={{fontSize:'13px', fontWeight:700}} className="text-[#5A9E60]">🌿 Fresh & Organic</p>
-              <p style={{fontSize:'20px', fontWeight:700}} className="text-[#222222]">Daily Essentials</p>
+              <p style={{fontSize:'13px', fontWeight:700}} className="text-[#0F766E]">🌿 Fresh & Organic</p>
+              <p style={{fontSize:'20px', fontWeight:700}} className="text-[#17202E]">Daily Essentials</p>
               <p style={{fontSize:'12px'}} className="text-[#666]">Delivered in 1 hour · Free above $30</p>
             </div>
           </div>
@@ -396,24 +396,24 @@ export default function Marketplace() {
             {groceryItems.map(item => {
               const cartItem = cart.find(c => c.name === item.name);
               return (
-                <div key={item.name} className="bg-white rounded-2xl border border-[#C2DBC4]/20 p-3 hover:border-[#C2DBC4] hover:shadow-sm transition-all">
+                <div key={item.name} className="bg-white rounded-2xl border border-[#14B8A6]/20 p-3 hover:border-[#14B8A6] hover:shadow-sm transition-all">
                   <div className="text-center text-3xl mb-2">{item.emoji}</div>
-                  <p style={{fontSize:'13px', fontWeight:600}} className="text-[#222222] text-center truncate">{item.name}</p>
+                  <p style={{fontSize:'13px', fontWeight:600}} className="text-[#17202E] text-center truncate">{item.name}</p>
                   <p style={{fontSize:'11px'}} className="text-[#888] text-center">{item.weight}</p>
-                  <div className={`text-center mt-1 text-xs font-medium ${item.stock === 'Low Stock' ? 'text-orange-500' : 'text-[#7BAF80]'}`}>
+                  <div className={`text-center mt-1 text-xs font-medium ${item.stock === 'Low Stock' ? 'text-orange-500' : 'text-[#0F766E]'}`}>
                     {item.stock}
                   </div>
                   <div className="flex items-center justify-between mt-2">
-                    <span style={{fontSize:'14px', fontWeight:700}} className="text-[#222222]">${item.price}</span>
+                    <span style={{fontSize:'14px', fontWeight:700}} className="text-[#17202E]">${item.price}</span>
                     {cartItem ? (
                       <div className="flex items-center gap-1">
                         <button onClick={() => removeFromCart(item.name)} className="w-6 h-6 rounded-md bg-gray-100 flex items-center justify-center"><Minus size={11} /></button>
                         <span style={{fontSize:'12px', fontWeight:600}} className="w-4 text-center">{cartItem.qty}</span>
-                        <button onClick={() => addToCart(item)} className="w-6 h-6 rounded-md bg-[#C2DBC4] flex items-center justify-center"><Plus size={11} /></button>
+                        <button onClick={() => addToCart(item)} className="w-6 h-6 rounded-md bg-[#14B8A6] flex items-center justify-center"><Plus size={11} /></button>
                       </div>
                     ) : (
-                      <button onClick={() => addToCart(item)} className="w-7 h-7 rounded-lg bg-[#C2DBC4] flex items-center justify-center hover:bg-[#A8C9AB] transition-colors">
-                        <Plus size={13} className="text-[#222222]" />
+                      <button onClick={() => addToCart(item)} className="w-7 h-7 rounded-lg bg-[#14B8A6] flex items-center justify-center hover:bg-[#0F766E] transition-colors">
+                        <Plus size={13} className="text-[#17202E]" />
                       </button>
                     )}
                   </div>
@@ -428,11 +428,11 @@ export default function Marketplace() {
       {(activeCategory === 'pharmacy' || activeCategory === 'electronics') && (
         <div className="flex flex-col items-center justify-center py-20 text-center">
           <div className="text-5xl mb-4">{activeCategory === 'pharmacy' ? '💊' : '📱'}</div>
-          <h3 style={{fontSize:'20px', fontWeight:700}} className="text-[#222222] mb-2">
+          <h3 style={{fontSize:'20px', fontWeight:700}} className="text-[#17202E] mb-2">
             {activeCategory === 'pharmacy' ? 'Pharmacy' : 'Electronics'} Coming Soon
           </h3>
           <p style={{fontSize:'14px'}} className="text-[#888]">We're partnering with local {activeCategory === 'pharmacy' ? 'pharmacies' : 'electronics stores'} in your area</p>
-          <button className="mt-4 px-6 py-2.5 bg-[#C2DBC4] text-[#222222] rounded-xl hover:bg-[#A8C9AB] transition-colors" style={{fontSize:'14px', fontWeight:600}}>
+          <button className="mt-4 px-6 py-2.5 bg-[#14B8A6] text-[#17202E] rounded-xl hover:bg-[#0F766E] transition-colors" style={{fontSize:'14px', fontWeight:600}}>
             Notify Me When Ready
           </button>
         </div>
@@ -443,9 +443,9 @@ export default function Marketplace() {
         <div className="fixed inset-0 z-50 flex">
           <div className="flex-1 bg-black/40" onClick={() => setCartOpen(false)} />
           <div className="w-full max-w-sm bg-white h-full flex flex-col shadow-2xl">
-            <div className="p-5 border-b border-[#C2DBC4]/20 flex items-center justify-between">
-              <h2 style={{fontSize:'18px', fontWeight:700}} className="text-[#222222]">Your Cart</h2>
-              <button onClick={() => setCartOpen(false)} className="p-1.5 hover:bg-[#E8F3E9] rounded-lg transition-colors">
+            <div className="p-5 border-b border-[#14B8A6]/20 flex items-center justify-between">
+              <h2 style={{fontSize:'18px', fontWeight:700}} className="text-[#17202E]">Your Cart</h2>
+              <button onClick={() => setCartOpen(false)} className="p-1.5 hover:bg-[#E0F7F3] rounded-lg transition-colors">
                 <X size={18} />
               </button>
             </div>
@@ -459,10 +459,10 @@ export default function Marketplace() {
               ) : (
                 <div className="space-y-3">
                   {cart.map(item => (
-                    <div key={item.name} className="flex items-center gap-3 p-3 bg-[#F5FAF5] rounded-xl">
+                    <div key={item.name} className="flex items-center gap-3 p-3 bg-[#EEF3F8] rounded-xl">
                       <span className="text-2xl">{item.emoji || '🛍️'}</span>
                       <div className="flex-1 min-w-0">
-                        <p style={{fontSize:'13px', fontWeight:600}} className="text-[#222222] truncate">{item.name}</p>
+                        <p style={{fontSize:'13px', fontWeight:600}} className="text-[#17202E] truncate">{item.name}</p>
                         <p style={{fontSize:'12px'}} className="text-[#888]">${item.price.toFixed(2)} each</p>
                       </div>
                       <div className="flex items-center gap-2 shrink-0">
@@ -470,7 +470,7 @@ export default function Marketplace() {
                           <Minus size={11} />
                         </button>
                         <span style={{fontSize:'13px', fontWeight:600}} className="w-5 text-center">{item.qty}</span>
-                        <button onClick={() => addToCart(item)} className="w-6 h-6 rounded-md bg-[#222222] flex items-center justify-center text-white">
+                        <button onClick={() => addToCart(item)} className="w-6 h-6 rounded-md bg-[#17202E] flex items-center justify-center text-white">
                           <Plus size={11} />
                         </button>
                       </div>
@@ -480,22 +480,22 @@ export default function Marketplace() {
               )}
             </div>
             {cart.length > 0 && (
-              <div className="p-5 border-t border-[#C2DBC4]/20">
+              <div className="p-5 border-t border-[#14B8A6]/20">
                 <div className="flex justify-between mb-3">
                   <span style={{fontSize:'14px'}} className="text-[#666]">Subtotal</span>
-                  <span style={{fontSize:'14px', fontWeight:600}} className="text-[#222222]">${cartTotal.toFixed(2)}</span>
+                  <span style={{fontSize:'14px', fontWeight:600}} className="text-[#17202E]">${cartTotal.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between mb-4">
                   <span style={{fontSize:'14px'}} className="text-[#666]">Delivery</span>
-                  <span style={{fontSize:'14px', fontWeight:600}} className="text-[#7BAF80]">FREE</span>
+                  <span style={{fontSize:'14px', fontWeight:600}} className="text-[#0F766E]">FREE</span>
                 </div>
-                <div className="flex justify-between mb-4 pt-3 border-t border-[#C2DBC4]/20">
-                  <span style={{fontSize:'16px', fontWeight:700}} className="text-[#222222]">Total</span>
-                  <span style={{fontSize:'16px', fontWeight:700}} className="text-[#222222]">${cartTotal.toFixed(2)}</span>
+                <div className="flex justify-between mb-4 pt-3 border-t border-[#14B8A6]/20">
+                  <span style={{fontSize:'16px', fontWeight:700}} className="text-[#17202E]">Total</span>
+                  <span style={{fontSize:'16px', fontWeight:700}} className="text-[#17202E]">${cartTotal.toFixed(2)}</span>
                 </div>
                 <button
                   onClick={placeOrder}
-                  className="w-full py-3.5 bg-[#222222] text-white rounded-xl hover:bg-[#333] transition-colors flex items-center justify-center gap-2"
+                  className="w-full py-3.5 bg-[#17202E] text-white rounded-xl hover:bg-[#333] transition-colors flex items-center justify-center gap-2"
                   style={{fontSize:'15px', fontWeight:600}}
                 >
                   <Package size={16} /> Place Order

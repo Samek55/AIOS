@@ -96,11 +96,11 @@ export default function AIOSMarketplace() {
   return (
     <div className="mx-auto max-w-7xl p-4 lg:p-6">
       {showSuccess ? (
-        <div className="fixed right-4 top-4 z-50 flex items-center gap-3 rounded-2xl border border-[#C2DBC4]/30 bg-[#222222] px-5 py-4 text-white shadow-2xl">
-          <CheckCircle2 size={20} className="text-[#C2DBC4]" />
+        <div className="fixed right-4 top-4 z-50 flex items-center gap-3 rounded-2xl border border-[#14B8A6]/30 bg-[#17202E] px-5 py-4 text-white shadow-2xl">
+          <CheckCircle2 size={20} className="text-[#14B8A6]" />
           <div>
             <p style={{ fontSize: '14px', fontWeight: 700 }}>Order placed</p>
-            <p style={{ fontSize: '12px' }} className="text-[#C2DBC4]">
+            <p style={{ fontSize: '12px' }} className="text-[#14B8A6]">
               Marketplace, finance, and health are now updated.
             </p>
           </div>
@@ -108,17 +108,17 @@ export default function AIOSMarketplace() {
       ) : null}
 
       {checkoutMessage ? (
-        <div className="mb-4 rounded-2xl border border-[#C2DBC4]/30 bg-white px-4 py-3 text-[#555]">
+        <div className="mb-4 rounded-2xl border border-[#14B8A6]/30 bg-white px-4 py-3 text-[#555]">
           <p style={{ fontSize: '12px', fontWeight: 700 }}>{checkoutMessage}</p>
         </div>
       ) : null}
 
       <div className="mb-5">
-        <h1 style={{ fontSize: '24px', fontWeight: 700 }} className="text-[#222222]">
+        <h1 style={{ fontSize: '24px', fontWeight: 700 }} className="text-[#17202E]">
           Marketplace
         </h1>
         <div className="mt-1 flex items-center gap-2 text-[#888]">
-          <MapPin size={13} className="text-[#C2DBC4]" />
+          <MapPin size={13} className="text-[#14B8A6]" />
           <span style={{ fontSize: '13px' }}>
             Delivering to {profile.address.street}, {profile.address.city}, {profile.address.state}
           </span>
@@ -135,20 +135,20 @@ export default function AIOSMarketplace() {
             value={searchQuery}
             onChange={(event) => setSearchQuery(event.target.value)}
             placeholder={`Search ${activeCategory} nearby...`}
-            className="w-full rounded-xl border border-[#C2DBC4]/30 bg-white py-2.5 pl-9 pr-4 text-[#222222] outline-none transition-colors placeholder:text-[#bbb] focus:border-[#C2DBC4]"
+            className="w-full rounded-xl border border-[#14B8A6]/30 bg-white py-2.5 pl-9 pr-4 text-[#17202E] outline-none transition-colors placeholder:text-[#bbb] focus:border-[#14B8A6]"
             style={{ fontSize: '14px' }}
           />
         </div>
-        <button className="rounded-xl border border-[#C2DBC4]/30 bg-white p-2.5 transition-colors hover:bg-[#E8F3E9]">
+        <button className="rounded-xl border border-[#14B8A6]/30 bg-white p-2.5 transition-colors hover:bg-[#E0F7F3]">
           <Filter size={18} className="text-[#666]" />
         </button>
         <button
           onClick={() => setCartOpen(true)}
-          className="relative rounded-xl bg-[#222222] p-2.5 text-white transition-colors hover:bg-[#333333]"
+          className="relative rounded-xl bg-[#17202E] p-2.5 text-white transition-colors hover:bg-[#243244]"
         >
           <ShoppingCart size={18} />
           {cartCount > 0 ? (
-            <span className="absolute -right-1.5 -top-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-[#C2DBC4] text-[#222222]">
+            <span className="absolute -right-1.5 -top-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-[#14B8A6] text-[#17202E]">
               <span style={{ fontSize: '10px', fontWeight: 700 }}>{cartCount}</span>
             </span>
           ) : null}
@@ -165,8 +165,8 @@ export default function AIOSMarketplace() {
             }}
             className={`rounded-xl border px-4 py-2 text-left transition-all ${
               activeCategory === category.id
-                ? 'border-[#222222] bg-[#222222] text-white'
-                : 'border-[#C2DBC4]/30 bg-white text-[#666] hover:border-[#C2DBC4]'
+                ? 'border-[#17202E] bg-[#17202E] text-white'
+                : 'border-[#14B8A6]/30 bg-white text-[#666] hover:border-[#14B8A6]'
             }`}
           >
             <p style={{ fontSize: '13px', fontWeight: 700 }}>{category.label}</p>
@@ -178,13 +178,13 @@ export default function AIOSMarketplace() {
       </div>
 
       {activeOrder ? (
-        <div className="mb-5 rounded-2xl border border-[#C2DBC4]/30 bg-[#E8F3E9] p-4">
+        <div className="mb-5 rounded-2xl border border-[#14B8A6]/30 bg-[#E0F7F3] p-4">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#C2DBC4]">
-              <Truck size={16} className="text-[#222222]" />
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#14B8A6]">
+              <Truck size={16} className="text-[#17202E]" />
             </div>
             <div className="min-w-0 flex-1">
-              <p style={{ fontSize: '13px', fontWeight: 700 }} className="text-[#222222]">
+              <p style={{ fontSize: '13px', fontWeight: 700 }} className="text-[#17202E]">
                 Active order: {activeOrder.vendorName}
               </p>
               <p style={{ fontSize: '11px' }} className="text-[#666]">
@@ -194,7 +194,7 @@ export default function AIOSMarketplace() {
           </div>
           <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-white">
             <div
-              className="h-full rounded-full bg-[#7BAF80]"
+              className="h-full rounded-full bg-[#0F766E]"
               style={{ width: `${activeOrder.progressPct}%` }}
             />
           </div>
@@ -203,10 +203,10 @@ export default function AIOSMarketplace() {
 
       {activeCategory === 'food' && !selectedVendor ? (
         <div>
-          <div className="mb-5 rounded-3xl bg-[#222222] p-6 text-white">
+          <div className="mb-5 rounded-3xl bg-[#17202E] p-6 text-white">
             <p
               style={{ fontSize: '11px', fontWeight: 700 }}
-              className="mb-1 uppercase tracking-[0.2em] text-[#C2DBC4]"
+              className="mb-1 uppercase tracking-[0.2em] text-[#14B8A6]"
             >
               Smart nearby food
             </p>
@@ -223,7 +223,7 @@ export default function AIOSMarketplace() {
               <button
                 key={vendor.id}
                 onClick={() => setSelectedVendorId(vendor.id)}
-                className="group overflow-hidden rounded-2xl border border-[#C2DBC4]/20 bg-white text-left transition-all hover:border-[#C2DBC4] hover:shadow-md"
+                className="group overflow-hidden rounded-2xl border border-[#14B8A6]/20 bg-white text-left transition-all hover:border-[#14B8A6] hover:shadow-md"
               >
                 <div className="relative h-40">
                   <ImageWithFallback
@@ -231,7 +231,7 @@ export default function AIOSMarketplace() {
                     alt={vendor.name}
                     className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
-                  <span className="absolute left-3 top-3 rounded-lg bg-[#222222] px-2.5 py-1 text-[#C2DBC4]">
+                  <span className="absolute left-3 top-3 rounded-lg bg-[#17202E] px-2.5 py-1 text-[#14B8A6]">
                     <span style={{ fontSize: '11px', fontWeight: 700 }}>
                       {vendor.badge ?? vendor.tag}
                     </span>
@@ -239,7 +239,7 @@ export default function AIOSMarketplace() {
                 </div>
                 <div className="p-4">
                   <div className="mb-1 flex items-center justify-between">
-                    <h3 style={{ fontSize: '15px', fontWeight: 700 }} className="text-[#222222]">
+                    <h3 style={{ fontSize: '15px', fontWeight: 700 }} className="text-[#17202E]">
                       {vendor.name}
                     </h3>
                     <div className="flex items-center gap-1 text-[#333]">
@@ -270,14 +270,14 @@ export default function AIOSMarketplace() {
         <div>
           <button
             onClick={() => setSelectedVendorId(null)}
-            className="mb-4 flex items-center gap-2 text-[#666] transition-colors hover:text-[#222222]"
+            className="mb-4 flex items-center gap-2 text-[#666] transition-colors hover:text-[#17202E]"
             style={{ fontSize: '14px' }}
           >
             <ArrowLeft size={16} />
             Back to restaurants
           </button>
 
-          <div className="relative mb-5 overflow-hidden rounded-3xl bg-[#222222]">
+          <div className="relative mb-5 overflow-hidden rounded-3xl bg-[#17202E]">
             <ImageWithFallback
               src={selectedVendor.imageUrl}
               alt={selectedVendor.name}
@@ -304,7 +304,7 @@ export default function AIOSMarketplace() {
               return (
                 <div
                   key={product.id}
-                  className="flex items-center gap-3 rounded-2xl border border-[#C2DBC4]/20 bg-white p-3"
+                  className="flex items-center gap-3 rounded-2xl border border-[#14B8A6]/20 bg-white p-3"
                 >
                   <ImageWithFallback
                     src={product.imageUrl ?? selectedVendor.imageUrl}
@@ -312,13 +312,13 @@ export default function AIOSMarketplace() {
                     className="h-16 w-16 rounded-xl object-cover"
                   />
                   <div className="min-w-0 flex-1">
-                    <p style={{ fontSize: '14px', fontWeight: 700 }} className="text-[#222222]">
+                    <p style={{ fontSize: '14px', fontWeight: 700 }} className="text-[#17202E]">
                       {product.name}
                     </p>
                     <p style={{ fontSize: '11px' }} className="text-[#888]">
                       {product.description}
                     </p>
-                    <p style={{ fontSize: '13px', fontWeight: 700 }} className="mt-1 text-[#222222]">
+                    <p style={{ fontSize: '13px', fontWeight: 700 }} className="mt-1 text-[#17202E]">
                       {formatCurrency(product.price)}
                     </p>
                   </div>
@@ -326,7 +326,7 @@ export default function AIOSMarketplace() {
                     <div className="flex items-center gap-2">
                       <button
                         onClick={() => updateCartQuantity(product.id, -1)}
-                        className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#222222] text-white"
+                        className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#17202E] text-white"
                       >
                         <Minus size={13} />
                       </button>
@@ -335,7 +335,7 @@ export default function AIOSMarketplace() {
                       </span>
                       <button
                         onClick={() => addCartItem(product.id)}
-                        className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#C2DBC4] text-[#222222]"
+                        className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#14B8A6] text-[#17202E]"
                       >
                         <Plus size={13} />
                       </button>
@@ -343,7 +343,7 @@ export default function AIOSMarketplace() {
                   ) : (
                     <button
                       onClick={() => addCartItem(product.id)}
-                      className="rounded-lg bg-[#C2DBC4] px-3 py-2 text-[#222222] transition-colors hover:bg-[#a7c9aa]"
+                      className="rounded-lg bg-[#14B8A6] px-3 py-2 text-[#17202E] transition-colors hover:bg-[#0F766E]"
                       style={{ fontSize: '12px', fontWeight: 700 }}
                     >
                       Add
@@ -367,7 +367,7 @@ export default function AIOSMarketplace() {
             return (
               <div
                 key={product.id}
-                className="overflow-hidden rounded-2xl border border-[#C2DBC4]/20 bg-white transition-all hover:border-[#C2DBC4] hover:shadow-md"
+                className="overflow-hidden rounded-2xl border border-[#14B8A6]/20 bg-white transition-all hover:border-[#14B8A6] hover:shadow-md"
               >
                 <div className="relative h-48">
                   <ImageWithFallback
@@ -391,12 +391,12 @@ export default function AIOSMarketplace() {
                 </div>
                 <div className="p-4">
                   <div className="mb-1 flex items-center justify-between gap-3">
-                    <p style={{ fontSize: '14px', fontWeight: 700 }} className="text-[#222222]">
+                    <p style={{ fontSize: '14px', fontWeight: 700 }} className="text-[#17202E]">
                       {product.name}
                     </p>
                     <span
                       style={{ fontSize: '10px', fontWeight: 700 }}
-                      className="rounded-full bg-[#F5FAF5] px-2 py-1 text-[#666]"
+                      className="rounded-full bg-[#EEF3F8] px-2 py-1 text-[#666]"
                     >
                       {vendor.name}
                     </span>
@@ -406,7 +406,7 @@ export default function AIOSMarketplace() {
                   </p>
                   <div className="mt-3 flex items-center justify-between">
                     <div>
-                      <p style={{ fontSize: '15px', fontWeight: 700 }} className="text-[#222222]">
+                      <p style={{ fontSize: '15px', fontWeight: 700 }} className="text-[#17202E]">
                         {formatCurrency(product.price)}
                       </p>
                       <p style={{ fontSize: '10px' }} className="text-[#aaa]">
@@ -417,7 +417,7 @@ export default function AIOSMarketplace() {
                       <div className="flex items-center gap-2">
                         <button
                           onClick={() => updateCartQuantity(product.id, -1)}
-                          className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#222222] text-white"
+                          className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#17202E] text-white"
                         >
                           <Minus size={13} />
                         </button>
@@ -426,7 +426,7 @@ export default function AIOSMarketplace() {
                         </span>
                         <button
                           onClick={() => addCartItem(product.id)}
-                          className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#C2DBC4] text-[#222222]"
+                          className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#14B8A6] text-[#17202E]"
                         >
                           <Plus size={13} />
                         </button>
@@ -434,7 +434,7 @@ export default function AIOSMarketplace() {
                     ) : (
                       <button
                         onClick={() => addCartItem(product.id)}
-                        className="rounded-lg bg-[#222222] px-3 py-2 text-white transition-colors hover:bg-[#333333]"
+                        className="rounded-lg bg-[#17202E] px-3 py-2 text-white transition-colors hover:bg-[#243244]"
                         style={{ fontSize: '12px', fontWeight: 700 }}
                       >
                         Add
@@ -452,13 +452,13 @@ export default function AIOSMarketplace() {
         <div className="fixed inset-0 z-50 flex">
           <div className="flex-1 bg-black/40" onClick={() => setCartOpen(false)} />
           <div className="flex h-full w-full max-w-sm flex-col bg-white shadow-2xl">
-            <div className="flex items-center justify-between border-b border-[#C2DBC4]/20 p-5">
-              <h2 style={{ fontSize: '18px', fontWeight: 700 }} className="text-[#222222]">
+            <div className="flex items-center justify-between border-b border-[#14B8A6]/20 p-5">
+              <h2 style={{ fontSize: '18px', fontWeight: 700 }} className="text-[#17202E]">
                 Your Cart
               </h2>
               <button
                 onClick={() => setCartOpen(false)}
-                className="rounded-lg p-1.5 transition-colors hover:bg-[#E8F3E9]"
+                className="rounded-lg p-1.5 transition-colors hover:bg-[#E0F7F3]"
               >
                 <X size={18} />
               </button>
@@ -475,7 +475,7 @@ export default function AIOSMarketplace() {
                 cartItems.map((item) => (
                   <div
                     key={item.product.id}
-                    className="flex items-center gap-3 rounded-xl bg-[#F5FAF5] p-3"
+                    className="flex items-center gap-3 rounded-xl bg-[#EEF3F8] p-3"
                   >
                     <ImageWithFallback
                       src={item.product.imageUrl ?? item.vendor.imageUrl}
@@ -483,7 +483,7 @@ export default function AIOSMarketplace() {
                       className="h-12 w-12 rounded-xl object-cover"
                     />
                     <div className="min-w-0 flex-1">
-                      <p style={{ fontSize: '13px', fontWeight: 700 }} className="truncate text-[#222222]">
+                      <p style={{ fontSize: '13px', fontWeight: 700 }} className="truncate text-[#17202E]">
                         {item.product.name}
                       </p>
                       <p style={{ fontSize: '11px' }} className="truncate text-[#888]">
@@ -505,7 +505,7 @@ export default function AIOSMarketplace() {
                       </span>
                       <button
                         onClick={() => addCartItem(item.product.id)}
-                        className="flex h-6 w-6 items-center justify-center rounded-md bg-[#222222] text-white"
+                        className="flex h-6 w-6 items-center justify-center rounded-md bg-[#17202E] text-white"
                       >
                         <Plus size={11} />
                       </button>
@@ -516,9 +516,9 @@ export default function AIOSMarketplace() {
             </div>
 
             {cartItems.length > 0 ? (
-              <div className="border-t border-[#C2DBC4]/20 p-5">
-                <div className="mb-4 rounded-2xl bg-[#F5FAF5] p-3">
-                  <p style={{ fontSize: '12px', fontWeight: 700 }} className="text-[#222222]">
+              <div className="border-t border-[#14B8A6]/20 p-5">
+                <div className="mb-4 rounded-2xl bg-[#EEF3F8] p-3">
+                  <p style={{ fontSize: '12px', fontWeight: 700 }} className="text-[#17202E]">
                     Payment Method
                   </p>
                   <div className="mt-2 grid gap-2">
@@ -531,8 +531,8 @@ export default function AIOSMarketplace() {
                         onClick={() => setPaymentMethod(option.id)}
                         className={`rounded-xl border px-3 py-2 text-left transition-all ${
                           paymentMethod === option.id
-                            ? 'border-[#222222] bg-[#222222] text-white'
-                            : 'border-[#C2DBC4]/30 bg-white text-[#666]'
+                            ? 'border-[#17202E] bg-[#17202E] text-white'
+                            : 'border-[#14B8A6]/30 bg-white text-[#666]'
                         }`}
                         style={{ fontSize: '12px', fontWeight: 700 }}
                       >
@@ -545,7 +545,7 @@ export default function AIOSMarketplace() {
                   <span style={{ fontSize: '14px' }} className="text-[#666]">
                     Subtotal
                   </span>
-                  <span style={{ fontSize: '14px', fontWeight: 700 }} className="text-[#222222]">
+                  <span style={{ fontSize: '14px', fontWeight: 700 }} className="text-[#17202E]">
                     {formatCurrency(cartSubtotal)}
                   </span>
                 </div>
@@ -553,14 +553,14 @@ export default function AIOSMarketplace() {
                   <span style={{ fontSize: '14px' }} className="text-[#666]">
                     Delivery
                   </span>
-                  <span style={{ fontSize: '14px', fontWeight: 700 }} className="text-[#222222]">
+                  <span style={{ fontSize: '14px', fontWeight: 700 }} className="text-[#17202E]">
                     Calculated at checkout
                   </span>
                 </div>
                 <button
                   onClick={() => void checkout()}
                   disabled={checkoutBusy}
-                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#222222] px-4 py-3 text-white transition-colors hover:bg-[#333333]"
+                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#17202E] px-4 py-3 text-white transition-colors hover:bg-[#243244]"
                   style={{ fontSize: '15px', fontWeight: 700 }}
                 >
                   <Package size={16} />

@@ -91,10 +91,10 @@ const leaderboard = [
 ];
 
 const challenges = [
-  { id: 1, name: '10K Steps Daily', emoji: '👟', participants: 234, daysLeft: 12, progress: 78, color: '#C2DBC4', joined: true },
+  { id: 1, name: '10K Steps Daily', emoji: '👟', participants: 234, daysLeft: 12, progress: 78, color: '#14B8A6', joined: true },
   { id: 2, name: '30-Day Yoga', emoji: '🧘', participants: 156, daysLeft: 18, progress: 40, color: '#C77DFF', joined: false },
-  { id: 3, name: 'No Sugar Week', emoji: '🚫🍬', participants: 89, daysLeft: 4, progress: 57, color: '#F4A261', joined: true },
-  { id: 4, name: '5km Run Club', emoji: '🏃', participants: 312, daysLeft: 25, progress: 20, color: '#7BA7DC', joined: false },
+  { id: 3, name: 'No Sugar Week', emoji: '🚫🍬', participants: 89, daysLeft: 4, progress: 57, color: '#F97316', joined: true },
+  { id: 4, name: '5km Run Club', emoji: '🏃', participants: 312, daysLeft: 25, progress: 20, color: '#2563EB', joined: false },
 ];
 
 const suggestions = [
@@ -104,7 +104,7 @@ const suggestions = [
 ];
 
 const typeColors: Record<string, { bg: string; text: string; label: string }> = {
-  workout: { bg: '#E8F3E9', text: '#5A9E60', label: '💪 Workout' },
+  workout: { bg: '#E0F7F3', text: '#0F766E', label: '💪 Workout' },
   food: { bg: '#FFF0E8', text: '#D4693A', label: '🥗 Nutrition' },
   milestone: { bg: '#F3E8FE', text: '#8B4EC4', label: '🏆 Milestone' },
   wellness: { bg: '#E8F3FE', text: '#3A69C4', label: '🧘 Wellness' },
@@ -151,14 +151,14 @@ export default function Social() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 style={{ fontSize: '24px', fontWeight: 700 }} className="text-[#222222]">Social</h1>
+          <h1 style={{ fontSize: '24px', fontWeight: 700 }} className="text-[#17202E]">Social</h1>
           <p style={{ fontSize: '13px' }} className="text-[#888]">Connect, share & compete with friends</p>
         </div>
         <div className="flex items-center gap-2">
-          <button className="p-2.5 bg-white rounded-xl border border-[#C2DBC4]/30 hover:bg-[#E8F3E9] transition-colors">
+          <button className="p-2.5 bg-white rounded-xl border border-[#14B8A6]/30 hover:bg-[#E0F7F3] transition-colors">
             <Search size={17} className="text-[#666]" />
           </button>
-          <button className="p-2.5 bg-white rounded-xl border border-[#C2DBC4]/30 hover:bg-[#E8F3E9] transition-colors">
+          <button className="p-2.5 bg-white rounded-xl border border-[#14B8A6]/30 hover:bg-[#E0F7F3] transition-colors">
             <Users size={17} className="text-[#666]" />
           </button>
         </div>
@@ -167,16 +167,16 @@ export default function Social() {
       {/* Stats bar */}
       <div className="grid grid-cols-3 gap-3">
         {[
-          { label: 'Following', value: '48', icon: Users, color: '#C2DBC4' },
+          { label: 'Following', value: '48', icon: Users, color: '#14B8A6' },
           { label: 'Rank This Week', value: '#4', icon: Trophy, color: '#F4C430' },
-          { label: 'Active Streak', value: '5 days', icon: Flame, color: '#F4A261' },
+          { label: 'Active Streak', value: '5 days', icon: Flame, color: '#F97316' },
         ].map(s => (
-          <div key={s.label} className="bg-white rounded-2xl border border-[#C2DBC4]/20 p-3 flex items-center gap-3">
+          <div key={s.label} className="bg-white rounded-2xl border border-[#14B8A6]/20 p-3 flex items-center gap-3">
             <div className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0" style={{ backgroundColor: s.color + '20' }}>
               <s.icon size={16} style={{ color: s.color }} />
             </div>
             <div>
-              <p style={{ fontSize: '16px', fontWeight: 700 }} className="text-[#222222]">{s.value}</p>
+              <p style={{ fontSize: '16px', fontWeight: 700 }} className="text-[#17202E]">{s.value}</p>
               <p style={{ fontSize: '10px' }} className="text-[#888]">{s.label}</p>
             </div>
           </div>
@@ -191,8 +191,8 @@ export default function Social() {
             onClick={() => setActiveTab(tab)}
             className={`flex-1 py-2 rounded-xl capitalize transition-all border ${
               activeTab === tab
-                ? 'bg-[#222222] text-white border-[#222222]'
-                : 'bg-white text-[#666] border-[#C2DBC4]/30 hover:border-[#C2DBC4]'
+                ? 'bg-[#17202E] text-white border-[#17202E]'
+                : 'bg-white text-[#666] border-[#14B8A6]/30 hover:border-[#14B8A6]'
             }`}
             style={{ fontSize: '13px', fontWeight: activeTab === tab ? 600 : 400 }}
           >
@@ -205,22 +205,22 @@ export default function Social() {
       {activeTab === 'feed' && (
         <div className="space-y-4">
           {/* Create post */}
-          <div className="bg-white rounded-2xl border border-[#C2DBC4]/20 p-4">
+          <div className="bg-white rounded-2xl border border-[#14B8A6]/20 p-4">
             {!showPostBox ? (
               <div className="flex items-center gap-3">
-                <ImageWithFallback src={PROFILE_IMG} alt="You" className="w-10 h-10 rounded-full object-cover border-2 border-[#C2DBC4]" />
+                <ImageWithFallback src={PROFILE_IMG} alt="You" className="w-10 h-10 rounded-full object-cover border-2 border-[#14B8A6]" />
                 <button
                   onClick={() => setShowPostBox(true)}
-                  className="flex-1 text-left px-4 py-2.5 bg-[#F5FAF5] rounded-xl border border-[#C2DBC4]/20 text-[#bbb] hover:border-[#C2DBC4] transition-colors"
+                  className="flex-1 text-left px-4 py-2.5 bg-[#EEF3F8] rounded-xl border border-[#14B8A6]/20 text-[#bbb] hover:border-[#14B8A6] transition-colors"
                   style={{ fontSize: '14px' }}
                 >
                   Share your progress, Alex...
                 </button>
                 <button
                   onClick={() => setShowPostBox(true)}
-                  className="w-9 h-9 rounded-xl bg-[#222222] flex items-center justify-center hover:bg-[#C2DBC4] transition-colors group"
+                  className="w-9 h-9 rounded-xl bg-[#17202E] flex items-center justify-center hover:bg-[#14B8A6] transition-colors group"
                 >
-                  <Plus size={16} className="text-white group-hover:text-[#222222]" />
+                  <Plus size={16} className="text-white group-hover:text-[#17202E]" />
                 </button>
               </div>
             ) : (
@@ -228,7 +228,7 @@ export default function Social() {
                 <div className="flex items-center gap-3">
                   <ImageWithFallback src={PROFILE_IMG} alt="You" className="w-10 h-10 rounded-full object-cover" />
                   <div>
-                    <p style={{ fontSize: '14px', fontWeight: 600 }} className="text-[#222222]">Alex Johnson</p>
+                    <p style={{ fontSize: '14px', fontWeight: 600 }} className="text-[#17202E]">Alex Johnson</p>
                     <p style={{ fontSize: '11px' }} className="text-[#888]">Sharing with followers</p>
                   </div>
                 </div>
@@ -237,14 +237,14 @@ export default function Social() {
                   onChange={e => setNewPost(e.target.value)}
                   placeholder="What did you achieve today? Share your workout, meal, or milestone..."
                   rows={3}
-                  className="w-full px-3 py-2.5 bg-[#F5FAF5] border border-[#C2DBC4]/20 rounded-xl resize-none outline-none focus:border-[#C2DBC4] text-[#333] placeholder:text-[#bbb]"
+                  className="w-full px-3 py-2.5 bg-[#EEF3F8] border border-[#14B8A6]/20 rounded-xl resize-none outline-none focus:border-[#14B8A6] text-[#333] placeholder:text-[#bbb]"
                   style={{ fontSize: '14px' }}
                 />
                 <div className="flex gap-2">
                   <button
                     onClick={submitPost}
                     disabled={!newPost.trim()}
-                    className="flex-1 py-2 bg-[#222222] text-white rounded-xl hover:bg-[#333] disabled:opacity-40 transition-colors"
+                    className="flex-1 py-2 bg-[#17202E] text-white rounded-xl hover:bg-[#333] disabled:opacity-40 transition-colors"
                     style={{ fontSize: '13px', fontWeight: 600 }}
                   >
                     Post
@@ -263,12 +263,12 @@ export default function Social() {
 
           {/* Posts */}
           {posts.map(post => (
-            <div key={post.id} className="bg-white rounded-2xl border border-[#C2DBC4]/20 overflow-hidden">
+            <div key={post.id} className="bg-white rounded-2xl border border-[#14B8A6]/20 overflow-hidden">
               {/* Post header */}
               <div className="p-4 flex items-center gap-3">
                 <img src={post.avatar} alt={post.user} className="w-10 h-10 rounded-full object-cover" />
                 <div className="flex-1">
-                  <p style={{ fontSize: '14px', fontWeight: 600 }} className="text-[#222222]">{post.user}</p>
+                  <p style={{ fontSize: '14px', fontWeight: 600 }} className="text-[#17202E]">{post.user}</p>
                   <div className="flex items-center gap-2">
                     <span
                       style={{
@@ -298,10 +298,10 @@ export default function Social() {
 
               {/* Stats */}
               {post.stats && (
-                <div className="mx-4 mt-3 p-3 bg-[#F5FAF5] rounded-xl flex gap-4">
+                <div className="mx-4 mt-3 p-3 bg-[#EEF3F8] rounded-xl flex gap-4">
                   {post.stats.map((s, i) => (
                     <div key={i} className="text-center flex-1">
-                      <p style={{ fontSize: '14px', fontWeight: 700 }} className="text-[#222222]">{s.value}</p>
+                      <p style={{ fontSize: '14px', fontWeight: 700 }} className="text-[#17202E]">{s.value}</p>
                       <p style={{ fontSize: '10px' }} className="text-[#888]">{s.label}</p>
                     </div>
                   ))}
@@ -337,23 +337,23 @@ export default function Social() {
       {/* LEADERBOARD TAB */}
       {activeTab === 'leaderboard' && (
         <div className="space-y-4">
-          <div className="bg-[#222222] rounded-2xl p-5">
+          <div className="bg-[#17202E] rounded-2xl p-5">
             <div className="flex items-center justify-between mb-4">
               <h3 style={{ fontSize: '15px', fontWeight: 700 }} className="text-white">Weekly Step Count</h3>
               <div className="flex items-center gap-1.5 px-3 py-1 bg-white/10 rounded-lg">
-                <Footprints size={12} className="text-[#C2DBC4]" />
-                <span style={{ fontSize: '11px' }} className="text-[#C2DBC4]">Apr 1–7</span>
+                <Footprints size={12} className="text-[#14B8A6]" />
+                <span style={{ fontSize: '11px' }} className="text-[#14B8A6]">Apr 1–7</span>
               </div>
             </div>
             {leaderboard.map(person => (
               <div
                 key={person.rank}
-                className={`flex items-center gap-3 p-3 rounded-xl mb-2 transition-all ${person.isMe ? 'bg-[#C2DBC4]/15 border border-[#C2DBC4]/30' : 'hover:bg-white/5'}`}
+                className={`flex items-center gap-3 p-3 rounded-xl mb-2 transition-all ${person.isMe ? 'bg-[#14B8A6]/15 border border-[#14B8A6]/30' : 'hover:bg-white/5'}`}
               >
                 <span style={{ fontSize: '18px' }} className="w-8 text-center">{person.badge}</span>
                 <img src={person.avatar} alt={person.name} className="w-9 h-9 rounded-full object-cover" />
                 <div className="flex-1">
-                  <p style={{ fontSize: '14px', fontWeight: person.isMe ? 700 : 500 }} className={person.isMe ? 'text-[#C2DBC4]' : 'text-white'}>
+                  <p style={{ fontSize: '14px', fontWeight: person.isMe ? 700 : 500 }} className={person.isMe ? 'text-[#14B8A6]' : 'text-white'}>
                     {person.name}
                   </p>
                   <div className="flex items-center gap-2 mt-0.5">
@@ -362,34 +362,34 @@ export default function Social() {
                         className="h-full rounded-full"
                         style={{
                           width: `${(person.steps / 72450) * 100}%`,
-                          backgroundColor: person.isMe ? '#C2DBC4' : 'rgba(255,255,255,0.3)'
+                          backgroundColor: person.isMe ? '#14B8A6' : 'rgba(255,255,255,0.3)'
                         }}
                       />
                     </div>
                   </div>
                 </div>
-                <p style={{ fontSize: '14px', fontWeight: 700 }} className={person.isMe ? 'text-[#C2DBC4]' : 'text-white/70'}>
+                <p style={{ fontSize: '14px', fontWeight: 700 }} className={person.isMe ? 'text-[#14B8A6]' : 'text-white/70'}>
                   {person.steps.toLocaleString()}
                 </p>
               </div>
             ))}
             <div className="mt-3 pt-3 border-t border-white/10 text-center">
-              <p style={{ fontSize: '12px' }} className="text-white/40">You're <span className="text-[#C2DBC4]">568 steps</span> behind #3 · Keep going! 🔥</p>
+              <p style={{ fontSize: '12px' }} className="text-white/40">You're <span className="text-[#14B8A6]">568 steps</span> behind #3 · Keep going! 🔥</p>
             </div>
           </div>
 
           {/* Friend Suggestions */}
-          <div className="bg-white rounded-2xl border border-[#C2DBC4]/20 p-5">
-            <h3 style={{ fontSize: '15px', fontWeight: 700 }} className="text-[#222222] mb-3">Suggested Friends</h3>
+          <div className="bg-white rounded-2xl border border-[#14B8A6]/20 p-5">
+            <h3 style={{ fontSize: '15px', fontWeight: 700 }} className="text-[#17202E] mb-3">Suggested Friends</h3>
             <div className="space-y-3">
               {suggestions.map(s => (
                 <div key={s.name} className="flex items-center gap-3">
                   <img src={s.avatar} alt={s.name} className="w-10 h-10 rounded-full object-cover" />
                   <div className="flex-1">
-                    <p style={{ fontSize: '13px', fontWeight: 600 }} className="text-[#222222]">{s.name}</p>
+                    <p style={{ fontSize: '13px', fontWeight: 600 }} className="text-[#17202E]">{s.name}</p>
                     <p style={{ fontSize: '11px' }} className="text-[#888]">{s.mutual} mutual friends · {s.activity}</p>
                   </div>
-                  <button className="flex items-center gap-1.5 px-3 py-1.5 bg-[#E8F3E9] border border-[#C2DBC4]/30 text-[#5A9E60] rounded-lg hover:bg-[#C2DBC4] hover:text-[#222] transition-all" style={{ fontSize: '12px', fontWeight: 600 }}>
+                  <button className="flex items-center gap-1.5 px-3 py-1.5 bg-[#E0F7F3] border border-[#14B8A6]/30 text-[#0F766E] rounded-lg hover:bg-[#14B8A6] hover:text-[#222] transition-all" style={{ fontSize: '12px', fontWeight: 600 }}>
                     <UserPlus size={12} /> Follow
                   </button>
                 </div>
@@ -403,8 +403,8 @@ export default function Social() {
       {activeTab === 'challenges' && (
         <div className="space-y-4">
           <div className="flex items-center justify-between">
-            <h3 style={{ fontSize: '15px', fontWeight: 700 }} className="text-[#222222]">Active Challenges</h3>
-            <button className="flex items-center gap-1.5 px-3 py-2 bg-[#222222] text-white rounded-xl hover:bg-[#333] transition-colors" style={{ fontSize: '12px', fontWeight: 600 }}>
+            <h3 style={{ fontSize: '15px', fontWeight: 700 }} className="text-[#17202E]">Active Challenges</h3>
+            <button className="flex items-center gap-1.5 px-3 py-2 bg-[#17202E] text-white rounded-xl hover:bg-[#333] transition-colors" style={{ fontSize: '12px', fontWeight: 600 }}>
               <Plus size={13} /> Create
             </button>
           </div>
@@ -412,15 +412,15 @@ export default function Social() {
           {challenges.map(c => {
             const joined = joinedChallenges.includes(c.id);
             return (
-              <div key={c.id} className={`bg-white rounded-2xl border overflow-hidden transition-all ${joined ? 'border-[#C2DBC4]' : 'border-[#C2DBC4]/20'}`}>
+              <div key={c.id} className={`bg-white rounded-2xl border overflow-hidden transition-all ${joined ? 'border-[#14B8A6]' : 'border-[#14B8A6]/20'}`}>
                 <div className="p-4">
                   <div className="flex items-center gap-3 mb-3">
                     <span className="text-2xl">{c.emoji}</span>
                     <div className="flex-1">
                       <div className="flex items-center justify-between">
-                        <p style={{ fontSize: '15px', fontWeight: 700 }} className="text-[#222222]">{c.name}</p>
+                        <p style={{ fontSize: '15px', fontWeight: 700 }} className="text-[#17202E]">{c.name}</p>
                         {joined && (
-                          <span style={{ fontSize: '10px', fontWeight: 600 }} className="px-2 py-0.5 bg-[#E8F3E9] text-[#5A9E60] rounded-md">Joined ✓</span>
+                          <span style={{ fontSize: '10px', fontWeight: 600 }} className="px-2 py-0.5 bg-[#E0F7F3] text-[#0F766E] rounded-md">Joined ✓</span>
                         )}
                       </div>
                       <div className="flex items-center gap-3 mt-0.5">
@@ -428,7 +428,7 @@ export default function Social() {
                           <Users size={11} className="text-[#888]" />
                           <span style={{ fontSize: '11px' }} className="text-[#888]">{c.participants} participants</span>
                         </div>
-                        <span style={{ fontSize: '11px' }} className="text-[#F4A261] font-semibold">⏰ {c.daysLeft} days left</span>
+                        <span style={{ fontSize: '11px' }} className="text-[#F97316] font-semibold">⏰ {c.daysLeft} days left</span>
                       </div>
                     </div>
                   </div>
@@ -443,7 +443,7 @@ export default function Social() {
                   </div>
                   <button
                     onClick={() => toggleChallenge(c.id)}
-                    className={`w-full py-2 rounded-xl transition-all ${joined ? 'bg-[#E8F3E9] text-[#5A9E60] border border-[#C2DBC4]' : 'bg-[#222222] text-white hover:bg-[#333]'}`}
+                    className={`w-full py-2 rounded-xl transition-all ${joined ? 'bg-[#E0F7F3] text-[#0F766E] border border-[#14B8A6]' : 'bg-[#17202E] text-white hover:bg-[#333]'}`}
                     style={{ fontSize: '13px', fontWeight: 600 }}
                   >
                     {joined ? '✓ Joined Challenge' : 'Join Challenge'}

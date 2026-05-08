@@ -8,8 +8,8 @@ export function RequireAuth() {
 
   if (loading) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-[#F5FAF5] text-[#222222]">
-        <div className="rounded-2xl border border-[#C2DBC4]/30 bg-white px-6 py-5 shadow-sm">
+      <div className="flex min-h-screen items-center justify-center bg-[#EEF3F8] text-[#17202E]">
+        <div className="rounded-2xl border border-[#14B8A6]/30 bg-white px-6 py-5 shadow-sm">
           <p style={{ fontSize: '15px', fontWeight: 700 }}>Loading AIOS...</p>
           <p style={{ fontSize: '12px' }} className="mt-1 text-[#777]">
             Restoring your session and syncing your data.

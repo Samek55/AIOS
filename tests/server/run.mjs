@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
-import { hashPassword, verifyToken } from '../../server/auth.js';
+import { hashPassword, verifyPassword, verifyToken } from '../../server/auth.js';
+import { validateProductionConfig } from '../../server/config.js';
 import {
   buildAdminOverview,
   buildVendorDashboard,
@@ -52,6 +53,46 @@ run('registerUser creates a new customer account and user state', () => {
   assert.equal(session.user.role, 'customer');
   assert.ok(store.userStates[session.user.id]);
   assert.equal(store.userStates[session.user.id].profile.city, 'Boston');
+});
+
+run('token and password verification reject malformed credentials safely', () => {
+  const passwordHash = hashPassword('secret123');
+
+  assert.equal(verifyPassword('secret123', passwordHash), true);
+  assert.equal(verifyPassword('wrong-password', passwordHash), false);
+  assert.equal(verifyPassword('secret123', 'bad-hash'), false);
+  assert.equal(verifyToken('not.a.valid.jwt'), null);
+});
+
+run('production config rejects unsafe defaults', () => {
+  assert.throws(() =>
+    validateProductionConfig({
+      env: 'production',
+      authSecret: 'short',
+      allowedOrigins: ['http://localhost:5173'],
+      databaseUrl: '',
+      allowFileStorageInProduction: false,
+      useMockPayments: true,
+      stripeSecretKey: '',
+      allowMockPaymentsInProduction: false,
+    }),
+  );
+});
+
+run('production config accepts explicit production services', () => {
+  assert.deepEqual(
+    validateProductionConfig({
+      env: 'production',
+      authSecret: 'a-production-secret-that-is-long-enough',
+      allowedOrigins: ['https://app.example.com'],
+      databaseUrl: 'postgresql://user:pass@example.com:5432/aios',
+      allowFileStorageInProduction: false,
+      useMockPayments: false,
+      stripeSecretKey: 'sk_live_example',
+      allowMockPaymentsInProduction: false,
+    }),
+    [],
+  );
 });
 
 run('admin overview exposes high-level platform metrics', () => {

@@ -6,8 +6,10 @@ import { sendJson, sendText, serveStatic } from './http-utils.js';
 import { incrementMetric, formatPrometheusMetrics } from './metrics.js';
 import { handleApi } from './router.js';
 import { getStoreMode } from './store.js';
+import { validateProductionConfig } from './config.js';
 
 const distDir = path.resolve(process.cwd(), 'dist');
+validateProductionConfig();
 
 const server = http.createServer(async (request, response) => {
   incrementMetric('httpRequestsTotal');
@@ -26,8 +28,14 @@ const server = http.createServer(async (request, response) => {
 
     serveStatic(request, url.pathname, response, distDir);
   } catch (error) {
-    sendJson(request, response, 500, {
-      error: error instanceof Error ? error.message : 'Unknown server error',
+    const statusCode = Number(error?.statusCode || 500);
+    if (statusCode >= 500) {
+      console.error(error);
+    }
+    sendJson(request, response, statusCode, {
+      error:
+        error?.publicMessage ||
+        (statusCode >= 500 ? 'Internal server error' : error.message || 'Request failed'),
     });
   }
 });

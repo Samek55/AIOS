@@ -524,7 +524,7 @@ export const initialHabits: Habit[] = [
     streak: 12,
     goal: 30,
     completedDays: [true, true, true, true, true, true, false],
-    color: '#C2DBC4',
+    color: '#14B8A6',
   },
   {
     id: 'habit-water',
@@ -533,7 +533,7 @@ export const initialHabits: Habit[] = [
     streak: 8,
     goal: 21,
     completedDays: [true, true, false, true, true, true, false],
-    color: '#7BA7DC',
+    color: '#2563EB',
   },
   {
     id: 'habit-read',
@@ -551,7 +551,7 @@ export const initialHabits: Habit[] = [
     streak: 15,
     goal: 30,
     completedDays: [true, true, true, true, true, true, false],
-    color: '#F4A261',
+    color: '#F97316',
   },
 ];
 
@@ -671,12 +671,12 @@ export const initialFinance: FinanceSnapshot = {
     { month: 'Apr', income: 5850, expenses: 1848 },
   ],
   categories: [
-    { id: 'food', name: 'Food & Dining', spent: 480, budget: 400, color: '#F4A261', emoji: 'F' },
+    { id: 'food', name: 'Food & Dining', spent: 480, budget: 400, color: '#F97316', emoji: 'F' },
     { id: 'shopping', name: 'Shopping', spent: 320, budget: 350, color: '#C77DFF', emoji: 'S' },
-    { id: 'groceries', name: 'Groceries', spent: 88, budget: 160, color: '#7BAF80', emoji: 'G' },
-    { id: 'health', name: 'Health & Fitness', spent: 89, budget: 120, color: '#C2DBC4', emoji: 'H' },
+    { id: 'groceries', name: 'Groceries', spent: 88, budget: 160, color: '#0F766E', emoji: 'G' },
+    { id: 'health', name: 'Health & Fitness', spent: 89, budget: 120, color: '#14B8A6', emoji: 'H' },
     { id: 'transport', name: 'Transport', spent: 180, budget: 200, color: '#F4C430', emoji: 'T' },
-    { id: 'utilities', name: 'Utilities', spent: 91, budget: 120, color: '#7BA7DC', emoji: 'U' },
+    { id: 'utilities', name: 'Utilities', spent: 91, budget: 120, color: '#2563EB', emoji: 'U' },
   ],
   transactions: [
     {
@@ -757,7 +757,7 @@ export const initialFinance: FinanceSnapshot = {
       target: 20000,
       saved: 12450,
       emoji: 'E',
-      color: '#C2DBC4',
+      color: '#14B8A6',
       deadlineLabel: 'Dec 2026',
     },
     {
@@ -766,7 +766,7 @@ export const initialFinance: FinanceSnapshot = {
       target: 5000,
       saved: 2800,
       emoji: 'V',
-      color: '#7BA7DC',
+      color: '#2563EB',
       deadlineLabel: 'Jul 2026',
     },
     {
