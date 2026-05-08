@@ -1,18 +1,49 @@
 # AIOS
 
-AIOS is an all-in-one AI life operating system that helps people order from nearby stores, manage routines, improve health, track spending, and get personalized daily guidance from one assistant.
+![CI](https://github.com/Samek55/AIOS/actions/workflows/ci.yml/badge.svg)
 
-This repo now contains:
+AIOS is an AI-powered life operating system prototype that combines personal assistance, hyperlocal commerce, routine planning, health tracking, finance awareness, and role-based operations into one product.
 
-- a React + Vite web app
-- a Node.js backend with auth, role-aware APIs, payments, AI integration hooks, metrics, and optional PostgreSQL persistence
-- a mobile Expo workspace in `mobile/`
-- admin and vendor panels on top of the same backend
-- Docker, CI, and local operations scaffolding
+It is built as a full-stack demo with a React web app, a Node.js API, admin and vendor experiences, optional PostgreSQL persistence, and a mobile Expo workspace.
 
-The app surfaces include:
+> Status: working prototype with real flows, seeded accounts, automated backend checks, and a deployable web build.
 
-- `/` Dashboard
+## Why AIOS
+
+Most products solve one narrow task at a time. AIOS is designed around the user's day.
+
+Instead of jumping between separate apps for ordering food, checking habits, planning routines, tracking health, and watching spending, the user can make one request and let the system coordinate the next actions.
+
+Example requests:
+
+- `Order a healthy dinner under $15`
+- `Plan my evening around my energy level`
+- `Help me recover today`
+- `Keep me on budget this week`
+
+The goal is not just to chat. The goal is to understand context, recommend the next step, and trigger useful actions across the platform.
+
+## What Is In This Repo
+
+- React + Vite web app with customer-facing product flows
+- Node.js backend with auth, role-aware APIs, metrics, payments hooks, and assistant orchestration
+- Admin console and vendor portal powered by the same backend
+- Optional PostgreSQL persistence with file-backed fallback storage
+- Expo mobile workspace in [`mobile/`](mobile/)
+- Docker, CI, and operations documentation
+
+## Core Product Areas
+
+- AI assistant that can summarize context and return actionable guidance
+- Marketplace experience for nearby ordering and cart management
+- Routine and habit flows for daily planning and follow-through
+- Health and wellness tracking for water, meals, workouts, and mood
+- Finance-aware recommendations instead of isolated budget tooling
+- Admin and vendor experiences for operations, visibility, and product management
+
+## App Surfaces
+
+- `/` dashboard
 - `/login`
 - `/ai-assistant`
 - `/marketplace`
@@ -24,32 +55,46 @@ The app surfaces include:
 - `/admin`
 - `/vendor`
 
-## Run It
+## Quick Start
 
-### Web + API
+### Web App + API
 
-1. `npm install`
-2. `npm run dev:server`
-3. `npm run dev`
+```bash
+npm install
+npm run dev:server
+npm run dev
+```
 
-The web app runs on `http://localhost:5173` and the API runs on `http://localhost:3001`.
+- Web app: `http://localhost:5173`
+- API: `http://localhost:3001`
 
-### PostgreSQL
+During local frontend development, Vite proxies `/api` requests to the backend server.
 
-1. `docker compose up -d`
-2. copy `.env.example` to `.env`
-3. set `DATABASE_URL=postgresql://postgres:postgres@localhost:5432/aios`
-4. restart `npm run dev:server`
+### Optional PostgreSQL
 
-If `DATABASE_URL` is empty, AIOS falls back to file persistence in `server/data/store.json`.
+```bash
+docker compose up -d
+copy .env.example .env
+```
 
-### Mobile
+Set:
 
-1. `cd mobile`
-2. `npm install`
-3. `npm start`
+```env
+DATABASE_URL=postgresql://postgres:postgres@localhost:5432/aios
+```
 
-Update `mobile/src/api.ts` with a reachable backend host when using a physical device.
+Then restart the backend.
+
+If `DATABASE_URL` is not set, AIOS falls back to local JSON persistence in `server/data/store.json`.
+
+### Mobile Workspace
+
+```bash
+npm --prefix mobile install
+npm run dev:mobile
+```
+
+If you run the mobile client on a physical device, update [`mobile/src/api.ts`](mobile/src/api.ts) to point to a reachable backend host.
 
 ## Demo Accounts
 
@@ -57,224 +102,133 @@ Update `mobile/src/api.ts` with a reachable backend host when using a physical d
 - Vendor: `vendor@aios.app` / `vendor1234`
 - Admin: `admin@aios.app` / `admin1234`
 
-## Current Platform Pieces
+## Architecture Snapshot
 
-- Auth and user accounts with signed bearer tokens
-- Optional PostgreSQL-backed persistence through `DATABASE_URL`
-- Mock-or-live payment checkout flow with Stripe-ready hooks
-- OpenAI-ready assistant integration with a local fallback brain
-- Vendor product management
-- Admin analytics and audit visibility
-- Monitoring endpoints at `/api/health` and `/metrics`
-- Mobile workspace sharing the same backend contract
-- Server verification script via `npm run test:server`
-
-## Product Vision
-
-Most apps solve one small problem at a time. AIOS is designed to solve the user's day.
-
-Instead of opening separate apps for food, tasks, workouts, budgets, and reminders, the user can tell one assistant what they need:
-
-- "Order a healthy dinner under $15."
-- "Plan my evening."
-- "Help me recover today."
-- "Keep me on budget this week."
-
-The assistant should understand the user's context, decide what matters, and trigger real actions across modules.
-
-## What Makes AIOS Interesting
-
-- AI that acts, not only chats
-- Hyperlocal marketplace for nearby food, groceries, clothes, essentials, and services
-- Daily routine engine that adapts to time, weather, energy, and calendar
-- Health and wellness guidance tied to real habits, meals, sleep, and workouts
-- Finance awareness that influences recommendations instead of living in a separate app
-- Mood and context based suggestions that make the product feel personal
-
-## Hero User Flows
-
-### 1. Ask, Decide, Act
-
-The user says what they want. AIOS responds with a plan and clear actions.
-
-Example:
-
-`"I am tired and hungry."`
-
-AIOS can:
-
-- suggest nearby dinner options
-- recommend a lighter workout or rest plan
-- move non-urgent tasks
-- prepare a short night routine
-
-### 2. Nearby Commerce
-
-Users can browse and order from nearby vendors:
-
-- restaurants
-- grocery stores
-- pharmacies
-- clothing shops
-- convenience stores
-
-### 3. Daily Operating System
-
-The app acts like a personal command center with:
-
-- schedule
-- reminders
-- habits
-- health check-ins
-- budget signals
-- end-of-day summaries
-
-## MVP Scope
-
-The strongest MVP is focused on three connected loops:
-
-1. AI assistant with memory and actionable suggestions
-2. Nearby ordering with vendor discovery and delivery tracking
-3. Routine plus health dashboard with smart reminders
-
-Finance, social, and advanced automation can land in later milestones.
-
-## Suggested Tech Stack
-
-To move fast from the current codebase:
-
-- Web app: React + Vite + TypeScript + Tailwind
-- Mobile app: Expo React Native + TypeScript + NativeWind
-- API: Node.js + NestJS
-- AI service: Python + FastAPI
-- Database: PostgreSQL
-- ORM: Prisma
-- Cache and jobs: Redis + BullMQ
-- Embeddings and memory: pgvector
-- Auth and storage: Supabase or Clerk + S3 compatible storage
-- Maps and location: Google Maps Platform
-- Payments: Stripe plus local payment gateway support
-- Notifications: Firebase Cloud Messaging or OneSignal
-
-## Current Architecture
-
-This repo is now a working full-stack prototype:
-
-- Frontend: React + Vite + TypeScript
-- Backend: Node.js HTTP API in [`server/index.js`](server/index.js)
-- Persistence: file-backed JSON store in `server/data/store.json`
-- Frontend state hydration: [`src/app/state/AiosAppContext.tsx`](src/app/state/AiosAppContext.tsx)
+- Web app entry: [`src/main.tsx`](src/main.tsx)
+- App shell: [`src/app/App.tsx`](src/app/App.tsx)
+- Routing: [`src/app/routes.tsx`](src/app/routes.tsx)
+- Frontend state: [`src/app/state/AiosAppContext.tsx`](src/app/state/AiosAppContext.tsx)
 - API client: [`src/app/lib/api.ts`](src/app/lib/api.ts)
+- Backend entry: [`server/index.js`](server/index.js)
+- Request routing: [`server/router.js`](server/router.js)
+- Domain logic: [`server/logic.js`](server/logic.js)
+- Auth: [`server/auth.js`](server/auth.js)
+- Persistence: [`server/store.js`](server/store.js)
 
-This is a practical prototype backend, not yet the final production stack from the blueprint. The production path would still be NestJS + PostgreSQL + Prisma.
+## Backend Capabilities
 
-## Run Locally
+The backend currently includes:
 
-- Frontend only: `npm run dev`
-- Frontend dev server explicitly: `npm run dev:client`
-- Backend API: `npm run dev:server`
-- Production frontend build: `npm run build`
-- Start backend server: `npm start`
+- auth and registration
+- bootstrap and dashboard APIs
+- assistant query endpoint
+- vendors, products, cart, and ordering flows
+- routine and task actions
+- health logging and workout or meal toggles
+- payment checkout hooks
+- admin overview and vendor dashboard support
+- health and metrics endpoints
 
-During frontend development, Vite proxies `/api` requests to `http://localhost:3001`.
+For the endpoint-level reference, see [guidelines/AIOS-API.md](guidelines/AIOS-API.md).
 
-## Backend API
+## Local Commands
 
-The backend currently supports:
+- Start frontend dev server: `npm run dev`
+- Start backend dev server: `npm run dev:server`
+- Start backend in server mode: `npm start`
+- Run backend checks: `npm run test:server`
+- Build production web app: `npm run build`
+- Start mobile workspace: `npm run dev:mobile`
 
-- `GET /api/health`
-- `GET /api/bootstrap`
-- `GET /api/dashboard/brief`
-- `GET /api/vendors`
-- `GET /api/products`
-- `POST /api/assistant/query`
-- `POST /api/cart/items`
-- `PATCH /api/cart/items/:productId`
-- `DELETE /api/cart`
-- `POST /api/orders`
-- `PATCH /api/tasks/:id/toggle`
-- `POST /api/tasks`
-- `PATCH /api/habits/:id/toggle`
-- `POST /api/health/water/log`
-- `PATCH /api/workouts/:id/toggle`
-- `PATCH /api/meals/:id/toggle`
-- `POST /api/mood`
-- `POST /api/reset`
+## Validation
 
-See [guidelines/AIOS-API.md](guidelines/AIOS-API.md) for a quick endpoint guide.
+This repository already includes:
+
+- backend verification via `npm run test:server`
+- production web build via `npm run build`
+- GitHub Actions workflow at [`.github/workflows/ci.yml`](.github/workflows/ci.yml)
+
+## Current Product Story
+
+AIOS is strongest when it behaves like a personal command center rather than a collection of disconnected tools.
+
+A good demo flow looks like this:
+
+1. The user opens the dashboard and sees a daily brief.
+2. They ask the assistant to plan the evening and order dinner.
+3. AIOS considers budget, health signals, habits, and nearby options.
+4. The system recommends food, updates routines, and tracks follow-up actions.
+5. The user ends the day with a clearer picture of health, productivity, and spending.
+
+## Current State Of The Project
+
+Today this repo is a full-stack prototype, not a finished production platform.
+
+What it already does well:
+
+- demonstrates a multi-surface product vision
+- connects assistant, marketplace, health, and routine flows in one codebase
+- supports customer, vendor, and admin roles
+- runs locally with seeded demo data
+- supports either PostgreSQL or local file persistence
+
+What would come next in a production push:
+
+- stronger AI memory and personalization
+- delivery and order lifecycle depth
+- calendar and notification integrations
+- hardened auth, storage, and background job processing
+- more granular observability and deployment automation
 
 ## Roadmap
 
 ### Phase 1
 
-- auth and onboarding
-- dashboard
-- AI assistant v1
+- onboarding and auth
+- dashboard foundation
+- assistant v1
 - nearby marketplace
-- simple order flow
-- routine planner
+- routine planning
 - health score basics
 
 ### Phase 2
 
 - delivery tracking
-- calendar sync
 - spending tracker
 - AI memory
-- mood mode
-- personalized recommendations
+- mood-aware suggestions
+- deeper personalization
 
 ### Phase 3
 
 - family mode
-- rewards and streaks
-- smart pantry
-- voice assistant
+- streaks and rewards
+- pantry and household workflows
 - vendor analytics
+- voice experiences
 
 ### Phase 4
 
 - predictive ordering
-- auto mode
+- auto-mode orchestration
 - wearable integrations
-- camera nutrition and posture features
-- advanced life summaries and goal coaching
+- camera-based nutrition and posture features
+- advanced life summaries and coaching
 
-## Business Potential
+## Repo Docs
 
-AIOS is more than a showcase UI. It can be positioned as:
+- [AIOS API guide](guidelines/AIOS-API.md)
+- [AIOS product blueprint](guidelines/AIOS-Blueprint.md)
+- [Operations notes](guidelines/OPERATIONS.md)
+- [Project guidelines](guidelines/Guidelines.md)
 
+## Positioning
+
+AIOS can be framed as:
+
+- an AI lifestyle assistant
 - a local commerce platform
-- a premium AI lifestyle subscription
-- a wellness and productivity assistant
-- a household operating system for families
+- a wellness and productivity operating system
+- a household coordination layer for families
 
-Revenue can come from:
-
-- marketplace commissions
-- delivery fees
-- AI Pro subscription
-- vendor promotion tools
-- health or finance premium features
-
-## Demo Story
-
-The strongest demo is a single user journey:
-
-1. User opens AIOS and sees a daily brief on the dashboard.
-2. They tell the assistant: `Plan my evening and order dinner`.
-3. AIOS checks time, budget, health goals, weather, and nearby stores.
-4. It suggests food, updates the routine, adds a reminder, and tracks the order.
-5. At night, AIOS shows a recap with health, productivity, and spending insights.
-
-## Detailed Blueprint
-
-See [guidelines/AIOS-Blueprint.md](guidelines/AIOS-Blueprint.md) for:
-
-- feature roadmap
-- screen map
-- system architecture
-- AI workflow
-- data model
-- monetization ideas
-- startup pitch summary
+Possible revenue paths include marketplace commissions, premium AI subscriptions, vendor tooling, and paid health or finance features.
